@@ -1,0 +1,275 @@
+:root {
+  --bg: #f7f4f0;
+  --surface: #ffffff;
+  --ink: #1d1b1a;
+  --muted: #6a5f58;
+  --accent: #2a6c6f;
+  --accent-light: #d7eceb;
+  --border: #e5dfd9;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 65%);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1100px, 90vw);
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 2.5rem 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.brand a {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  padding: 0.4rem 0.6rem;
+  border-radius: 999px;
+}
+
+.nav-links a:hover {
+  background: var(--accent-light);
+}
+
+.hero {
+  padding: 3rem 0 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.6rem;
+}
+
+.hero p {
+  max-width: 50ch;
+  color: var(--muted);
+}
+
+.post-list {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.post-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 2fr;
+  gap: 1.5rem;
+}
+
+.post-image {
+  height: 100%;
+  overflow: hidden;
+}
+
+.post-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 1.8rem 1.8rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.post-content h2 {
+  font-size: 1.6rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.button.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.empty-state {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.post-detail {
+  margin: 2rem 0 3rem;
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.post-detail h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 1rem 0 1.5rem;
+}
+
+.post-hero {
+  margin: 1.5rem 0;
+}
+
+.post-body {
+  color: #2b2725;
+}
+
+.post-body p {
+  margin-bottom: 1rem;
+}
+
+.form-section {
+  background: var(--surface);
+  padding: 2.5rem;
+  margin: 2rem 0 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.post-form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-error {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  background: #fbe9e8;
+  color: #7b2b27;
+}
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .post-card {
+    grid-template-columns: 1fr;
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .post-actions,
+  .form-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

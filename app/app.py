@@ -3,7 +3,16 @@ import sqlite3
 from datetime import datetime
 from pathlib import Path
 
-from flask import Flask, abort, jsonify, redirect, render_template, request, url_for
+from flask import (
+    Flask,
+    abort,
+    jsonify,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
+from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -13,6 +22,10 @@ ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif", "webp"}
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = str(UPLOAD_FOLDER)
+app.config["ADMIN_USERNAME"] = os.environ.get("ADMIN_USERNAME", "admin")
+app.config["ADMIN_PASSWORD_HASH"] = os.environ.get(
+    "ADMIN_PASSWORD_HASH", generate_password_hash("admin")
+)
 
 
 def get_db():
@@ -38,14 +51,35 @@ def init_db():
         )
 
 
-@app.before_first_request
-def setup():
-    UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
-    init_db()
+UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
+init_db()
 
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def requires_auth(view):
+    def wrapped(*args, **kwargs):
+        auth = request.authorization
+        if not auth or auth.type != "basic":
+            return _auth_challenge()
+        if auth.username != app.config["ADMIN_USERNAME"]:
+            return _auth_challenge()
+        if not check_password_hash(app.config["ADMIN_PASSWORD_HASH"], auth.password):
+            return _auth_challenge()
+        return view(*args, **kwargs)
+
+    wrapped.__name__ = view.__name__
+    return wrapped
+
+
+def _auth_challenge():
+    return (
+        "Authentication required",
+        401,
+        {"WWW-Authenticate": 'Basic realm="Admin"'},
+    )
 
 
 @app.route("/")
@@ -73,17 +107,17 @@ def post_detail(post_id):
 @app.route("/post/<int:post_id>/like", methods=["POST"])
 def like_post(post_id):
     with get_db() as conn:
-        cur = conn.execute(
-            "UPDATE posts SET likes = likes + 1 WHERE id = ? RETURNING likes",
-            (post_id,),
-        )
-        row = cur.fetchone()
+        conn.execute("UPDATE posts SET likes = likes + 1 WHERE id = ?", (post_id,))
+        row = conn.execute(
+            "SELECT likes FROM posts WHERE id = ?", (post_id,)
+        ).fetchone()
     if row is None:
         abort(404)
     return jsonify({"likes": row[0]})
 
 
 @app.route("/admin/new", methods=["GET", "POST"])
+@requires_auth
 def new_post():
     if request.method == "POST":
         title = request.form.get("title", "").strip()
