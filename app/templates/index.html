@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Stories, experiments, and updates.</h1>
+  <p>Welcome to my personal blog. I share what I am learning and building.</p>
+</section>
+
+<section class="post-list">
+  {% if posts %}
+    {% for post in posts %}
+      <article class="post-card">
+        {% if post.image_filename %}
+          <a href="{{ url_for('post_detail', post_id=post.id) }}" class="post-image">
+            <img src="{{ url_for('static', filename='uploads/' ~ post.image_filename) }}" alt="{{ post.title }}">
+          </a>
+        {% endif %}
+        <div class="post-content">
+          <div class="post-meta">
+            <span>{{ post.created_at[:10] }}</span>
+            <span>{{ post.views }} views</span>
+            <span><span data-like-count="{{ post.id }}">{{ post.likes }}</span> likes</span>
+          </div>
+          <h2><a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a></h2>
+          <p>{{ post.body[:200] }}{% if post.body|length > 200 %}...{% endif %}</p>
+          <div class="post-actions">
+            <a class="button" href="{{ url_for('post_detail', post_id=post.id) }}">Read post</a>
+            <button class="button ghost" type="button" data-like-button data-post-id="{{ post.id }}">Like</button>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      <h2>No posts yet.</h2>
+      <p>Create your first post to get started.</p>
+      <a class="button" href="{{ url_for('new_post') }}">Create post</a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

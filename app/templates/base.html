@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "JP Marson" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <a href="{{ url_for('index') }}">JP Marson</a>
+        <span class="tagline">Personal notes and projects</span>
+      </div>
+      <nav class="nav-links">
+        <a href="{{ url_for('index') }}">Blog</a>
+        <a href="{{ url_for('new_post') }}">New Post</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Built with Flask.</div>
+  </footer>
+
+  <script>
+    document.addEventListener('click', async (event) => {
+      const button = event.target.closest('[data-like-button]');
+      if (!button) return;
+      const postId = button.getAttribute('data-post-id');
+      if (!postId) return;
+      const response = await fetch(`/post/${postId}/like`, { method: 'POST' });
+      if (!response.ok) return;
+      const payload = await response.json();
+      const counter = document.querySelector(`[data-like-count="${postId}"]`);
+      if (counter) {
+        counter.textContent = payload.likes;
+      }
+    });
+  </script>
+</body>
+</html>

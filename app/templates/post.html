@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="post-detail">
+  <div class="post-meta">
+    <span>{{ post.created_at[:10] }}</span>
+    <span>{{ post.views }} views</span>
+    <span><span data-like-count="{{ post.id }}">{{ post.likes }}</span> likes</span>
+  </div>
+  <h1>{{ post.title }}</h1>
+  {% if post.image_filename %}
+    <div class="post-hero">
+      <img src="{{ url_for('static', filename='uploads/' ~ post.image_filename) }}" alt="{{ post.title }}">
+    </div>
+  {% endif %}
+  <div class="post-body">
+    {% for paragraph in post.body.split('\n') %}
+      {% if paragraph.strip() %}
+        <p>{{ paragraph }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="post-actions">
+    <button class="button" type="button" data-like-button data-post-id="{{ post.id }}">Like this post</button>
+  </div>
+</article>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-section">
+  <h1>Create a new post</h1>
+  {% if error %}
+    <div class="form-error">{{ error }}</div>
+  {% endif %}
+  <form class="post-form" method="post" enctype="multipart/form-data">
+    <label>
+      Title
+      <input type="text" name="title" value="{{ title or '' }}" required>
+    </label>
+    <label>
+      Body
+      <textarea name="body" rows="10" required>{{ body or '' }}</textarea>
+    </label>
+    <label>
+      Image (optional)
+      <input type="file" name="image" accept="image/*">
+    </label>
+    <div class="form-actions">
+      <button class="button" type="submit">Publish</button>
+      <a class="button ghost" href="{{ url_for('index') }}">Cancel</a>
+    </div>
+  </form>
+</section>
+{% endblock %}
