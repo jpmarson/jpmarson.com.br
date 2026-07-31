@@ -4,7 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JP Marson — Project & Product Management</title>
-<meta name="description" content="João Paulo Marson — Manager, Technical Project Management na Fiserv. 16+ anos em projetos e produtos digitais para o mercado financeiro. Fundador da Jurik.">
+<meta name="description" content="João Paulo Marson — Manager, Technical Project Management na Fiserv. 16+ anos liderando projetos e produtos digitais no mercado financeiro: pagamentos, adquirência, fintech e projetos regulatórios. Fundador da Jurik.">
+<meta name="author" content="João Paulo Marson">
+<meta name="keywords" content="João Paulo Marson, JP Marson, Project Manager, Program Manager, Technical Project Management, Product Owner, Fintech, Payments, Acquiring, Fiserv, Agile, Scrum, PMO, São Paulo, Brasil">
+<link rel="canonical" href="https://jpmarson.com.br/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:site_name" content="JP Marson">
+<meta property="og:url" content="https://jpmarson.com.br/">
+<meta property="og:title" content="João Paulo Marson — Project & Product Management | Fintech & Payments">
+<meta property="og:description" content="16+ anos liderando projetos e produtos digitais no mercado financeiro. Manager, Technical Project Management na Fiserv. Fundador da Jurik.">
+<meta property="og:image" content="https://jpmarson.com.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="João Paulo Marson — Project & Product Management">
+<meta property="profile:first_name" content="João Paulo">
+<meta property="profile:last_name" content="Marson">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="João Paulo Marson — Project & Product Management">
+<meta name="twitter:description" content="16+ anos liderando projetos e produtos digitais no mercado financeiro. Manager, Technical Project Management na Fiserv.">
+<meta name="twitter:image" content="https://jpmarson.com.br/og-image.png">
+
+<!-- Dados estruturados: Google entende quem é você -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"João Paulo Marson",
+  "alternateName":"JP Marson",
+  "givenName":"João Paulo",
+  "familyName":"Marson",
+  "url":"https://jpmarson.com.br/",
+  "email":"mailto:jp@jpmarson.com.br",
+  "jobTitle":"Manager, Technical Project Management",
+  "description":"Líder de gestão de projetos e produtos digitais no mercado financeiro, com mais de 16 anos de experiência em pagamentos, adquirência, fintech e projetos regulatórios.",
+  "worksFor":{"@type":"Organization","name":"Fiserv","url":"https://www.fiserv.com"},
+  "address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"},
+  "nationality":{"@type":"Country","name":"Brazil"},
+  "alumniOf":{"@type":"EducationalOrganization","name":"FATEC"},
+  "knowsLanguage":["pt-BR","en","es"],
+  "knowsAbout":["Project Management","Program Management","Product Ownership","Fintech","Payments","Merchant Acquiring","Acquiring as a Service","Agile","Scrum","Kanban","API Integrations","Stakeholder Management","Regulatory Compliance","Data-Driven Strategy"],
+  "sameAs":[
+    "https://www.linkedin.com/in/jpmarson",
+    "https://github.com/jpmarson"
+  ],
+  "seeks":{"@type":"Demand","name":"Project Management and Product leadership opportunities"}
+}
+</script>
+<link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/">
+<link rel="alternate" hreflang="en" href="https://jpmarson.com.br/">
+<link rel="alternate" hreflang="es" href="https://jpmarson.com.br/">
+<link rel="alternate" hreflang="x-default" href="https://jpmarson.com.br/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a66ff'/><text x='50' y='68' font-size='48' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'>jp</text></svg>">
 <style>
   :root{
@@ -119,6 +176,10 @@
   .hdr-right{display:flex;align-items:center;gap:10px}
   .btn.ghost{border:1px solid var(--border);color:var(--text);background:var(--surface)}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.cv{border:1px solid var(--accent);color:var(--accent);background:var(--accent-soft)}
+  .btn.cv::before{content:"↓";font-weight:700}
+  .btn.cv:hover{background:var(--accent);color:#fff}
+  [data-theme="dark"] .btn.cv:hover{color:#0b1120}
   footer{border-top:1px solid var(--border);margin-top:72px;padding:24px 0 40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
   footer .status{display:inline-flex;align-items:center;gap:7px}
   .dot{width:7px;height:7px;border-radius:50%;background:#16a34a;animation:pulse 2s infinite}
@@ -221,8 +282,10 @@
 
     <section>
       <h2 data-i18n="contactTitle"></h2>
+      <p class="sec-sub" data-i18n="contactSub"></p>
       <div class="links">
         <a class="btn primary" href="mailto:jp@jpmarson.com.br" data-i18n="contact"></a>
+        <a class="btn cv" id="cvLink" href="cv/joao-paulo-marson-cv-pt.pdf" download><span data-i18n="cv"></span></a>
         <a class="btn ghost" href="https://www.linkedin.com/in/jpmarson" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn ghost" href="https://github.com/jpmarson" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -261,6 +324,8 @@ const i18n = {
     skillsTitle:"Competências",
     chipReg:"Projetos Regulatórios",
     contactTitle:"Contato",
+    contactSub:"Aberto a oportunidades de liderança em projetos e produtos — no Brasil ou remoto internacional.",
+    cv:"Baixar CV",
     contact:"Fale comigo",
     status:"disponível para conexões"
   },
@@ -288,6 +353,8 @@ const i18n = {
     skillsTitle:"Skills",
     chipReg:"Regulatory Projects",
     contactTitle:"Contact",
+    contactSub:"Open to project and product leadership opportunities — in Brazil or remote worldwide.",
+    cv:"Download résumé",
     contact:"Get in touch",
     status:"open to connect"
   },
@@ -315,6 +382,8 @@ const i18n = {
     skillsTitle:"Competencias",
     chipReg:"Proyectos Regulatorios",
     contactTitle:"Contacto",
+    contactSub:"Abierto a oportunidades de liderazgo en proyectos y productos — en Brasil o remoto internacional.",
+    cv:"Descargar CV",
     contact:"Contáctame",
     status:"abierto a conexiones"
   }
@@ -323,6 +392,10 @@ function setLang(l){
   document.documentElement.lang = l==="pt"?"pt-BR":l;
   document.querySelectorAll("[data-i18n]").forEach(el=>{ el.textContent = i18n[l][el.dataset.i18n] || ""; });
   document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));
+  /* CV em português para PT/ES, em inglês para EN */
+  document.getElementById("cvLink").href = (l==="en")
+    ? "cv/joao-paulo-marson-resume-en.pdf"
+    : "cv/joao-paulo-marson-cv-pt.pdf";
   try{ localStorage.setItem("lang",l); }catch(e){}
 }
 document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
