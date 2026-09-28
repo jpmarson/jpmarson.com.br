@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A rotina de priorização do Backlog — João Paulo Marson</title>
+<meta name="description" content="A priorização do backlog é uma rotina e nunca acaba — é como lavar louça. Aqui está o ciclo que eu uso, passo a passo, com as ferramentas de cada etapa.">
+<meta name="author" content="João Paulo Marson">
+<link rel="canonical" href="https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="JP Marson">
+<meta property="og:url" content="https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/">
+<meta property="og:title" content="A rotina de priorização do Backlog — João Paulo Marson">
+<meta property="og:description" content="A priorização do backlog é uma rotina e nunca acaba — é como lavar louça. Aqui está o ciclo que eu uso, passo a passo, com as ferramentas de cada etapa.">
+<meta property="og:image" content="https://jpmarson.com.br/covers/rotina-de-priorizacao-do-backlog.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A rotina de priorização do Backlog — João Paulo Marson">
+<meta name="twitter:description" content="A priorização do backlog é uma rotina e nunca acaba — é como lavar louça. Aqui está o ciclo que eu uso, passo a passo, com as ferramentas de cada etapa.">
+<meta name="twitter:image" content="https://jpmarson.com.br/covers/rotina-de-priorizacao-do-backlog.png">
+<link rel="alternate" type="application/rss+xml" title="JP Marson" href="https://jpmarson.com.br/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a66ff'/><text x='50' y='68' font-size='48' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'>jp</text></svg>">
+
+<link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/">
+<link rel="alternate" hreflang="en" href="https://jpmarson.com.br/blog/en/rotina-de-priorizacao-do-backlog/">
+<link rel="alternate" hreflang="x-default" href="https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting",
+ "headline":"A rotina de priorização do Backlog",
+ "description":"A priorização do backlog é uma rotina e nunca acaba — é como lavar louça. Aqui está o ciclo que eu uso, passo a passo, com as ferramentas de cada etapa.",
+ "image":"https://jpmarson.com.br/covers/rotina-de-priorizacao-do-backlog.png",
+ "datePublished":"2022-05-26","dateModified":"2022-05-26",
+ "inLanguage":"pt-BR",
+ "wordCount":1423,
+ "keywords":["backlog","priorização","produto","agilidade"],
+ "mainEntityOfPage":{"@type":"WebPage","@id":"https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/"},
+ "author":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/",
+   "sameAs":["https://www.linkedin.com/in/jpmarson","https://github.com/jpmarson"]},
+ "publisher":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/"},
+ "isPartOf":{"@type":"Blog","name":"João Paulo Marson","url":"https://jpmarson.com.br/blog/"}}
+</script>
+<style>
+  :root{
+    --bg:#fafbfd; --surface:#ffffff; --text:#0f172a; --muted:#5b6b83;
+    --accent:#0a66ff; --accent-soft:#e8f0ff; --border:#e4e9f2;
+    --tag-border:#cfe0ff; --shadow:rgba(10,102,255,.08);
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,sans-serif;
+  }
+  [data-theme="dark"]{
+    --bg:#0b1120; --surface:#121b30; --text:#e6ecf7; --muted:#93a3bd;
+    --accent:#4d8dff; --accent-soft:#14233f; --border:#1e2a44;
+    --tag-border:#264573; --shadow:rgba(0,0,0,.35);
+  }
+  [data-theme="dark"] .lang button.active{color:#0b1120}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:light}
+  html[data-theme="dark"]{color-scheme:dark}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+       -webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative}
+  header{display:flex;justify-content:space-between;align-items:center;padding:28px 0;gap:12px;flex-wrap:wrap}
+  .logo{font-family:var(--mono);font-weight:700;font-size:1.05rem;letter-spacing:-.5px;color:var(--text);text-decoration:none}
+  .logo span{color:var(--accent)}
+  .hdr-right{display:flex;align-items:center;gap:10px}
+  .navlink{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;padding:5px 10px;border-radius:8px;transition:.2s}
+  .navlink:hover{color:var(--accent);background:var(--accent-soft)}
+  .lang{display:flex;gap:4px;border:1px solid var(--border);border-radius:999px;padding:3px;background:var(--surface)}
+  .lang button{font-family:var(--mono);font-size:.72rem;border:0;background:transparent;color:var(--muted);
+               padding:5px 12px;border-radius:999px;cursor:pointer;transition:.2s}
+  .lang button.active{background:var(--accent);color:#fff}
+  .lang button:not(.active):hover{color:var(--accent)}
+  .theme-btn{width:34px;height:34px;border-radius:999px;border:1px solid var(--border);background:var(--surface);
+             color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+             font-size:1rem;transition:.2s}
+  .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+  main{padding:32px 0 24px}
+  a{color:var(--accent)}
+
+  /* índice */
+  .page-tag{font-family:var(--mono);font-size:.78rem;color:var(--accent);background:var(--accent-soft);
+            border:1px solid var(--tag-border);display:inline-block;padding:4px 12px;border-radius:999px;margin-bottom:20px}
+  h1.page-title{font-size:clamp(2rem,6vw,2.9rem);letter-spacing:-.03em;line-height:1.1;font-weight:800}
+  .page-sub{color:var(--muted);font-size:1.05rem;margin-top:12px;max-width:60ch}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 0}
+  .filter{font-family:var(--mono);font-size:.74rem;background:var(--surface);border:1px solid var(--border);
+          color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer;transition:.2s}
+  .filter:hover{border-color:var(--accent);color:var(--accent)}
+  .filter.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  [data-theme="dark"] .filter.on{color:#0b1120}
+  .postlist{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+  .pcard{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);
+         border-radius:14px;padding:22px;transition:.25s}
+  .pcard:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow)}
+  .pmeta{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .pmeta .dot{opacity:.5}
+  .pcard h2{font-size:1.22rem;letter-spacing:-.015em;margin:8px 0 6px;line-height:1.3}
+  .pcard p{color:var(--muted);font-size:.94rem}
+  .ptags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+  .ptag{font-family:var(--mono);font-size:.68rem;color:var(--accent);background:var(--accent-soft);
+        border:1px solid var(--tag-border);padding:3px 9px;border-radius:999px}
+  .empty{color:var(--muted);font-size:.95rem;padding:24px 0}
+
+  /* artigo */
+  .back{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:22px}
+  .back:hover{color:var(--accent)}
+  article h1{font-size:clamp(1.9rem,5.4vw,2.6rem);letter-spacing:-.03em;line-height:1.16;font-weight:800}
+  .amet{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .lede{font-size:1.1rem;color:var(--muted);margin-top:16px;padding-left:16px;border-left:3px solid var(--accent)}
+  .body{margin-top:32px;font-size:1.02rem}
+  .body h2{font-size:1.35rem;letter-spacing:-.015em;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+  .body h3{font-size:1.1rem;margin:26px 0 8px}
+  .body p{margin:14px 0}
+  .body ul,.body ol{margin:14px 0;padding-left:22px}
+  .body li{margin:6px 0}
+  .body blockquote{margin:20px 0;padding:14px 18px;background:var(--accent-soft);border-left:3px solid var(--accent);
+                   border-radius:0 10px 10px 0;color:var(--text)}
+  .body blockquote p{margin:0}
+  .body code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);border:1px solid var(--tag-border);
+             padding:1px 6px;border-radius:5px}
+  .body pre{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;
+            overflow-x:auto;margin:18px 0}
+  .body pre code{background:none;border:0;padding:0;font-size:.86rem;line-height:1.55}
+  .body img{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--border);background:var(--surface)}
+  .body figure{margin:24px 0;text-align:center}
+  .body figcaption{font-size:.84rem;color:var(--muted);margin-top:9px;line-height:1.45}
+  .body hr{border:0;border-top:1px solid var(--border);margin:28px 0}
+  .body a{text-decoration:underline;text-underline-offset:3px}
+
+  /* engajamento */
+  .engage{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid var(--border)}
+  .like{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.84rem;cursor:pointer;
+        background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:10px 18px;border-radius:999px;transition:.2s}
+  .like:hover{border-color:var(--accent);color:var(--accent)}
+  .like.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  [data-theme="dark"] .like.on{color:#0b1120}
+  .like .heart{font-size:1rem;line-height:1}
+  .like.on .heart{animation:pop .32s ease}
+  @keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.45)}100%{transform:scale(1)}}
+  .views{font-family:var(--mono);font-size:.78rem;color:var(--muted);display:inline-flex;align-items:center;gap:7px}
+  .share{margin-left:auto;display:flex;gap:8px}
+  .share a{font-family:var(--mono);font-size:.76rem;text-decoration:none;color:var(--muted);border:1px solid var(--border);
+           background:var(--surface);padding:8px 14px;border-radius:999px;transition:.2s}
+  .share a:hover{border-color:var(--accent);color:var(--accent)}
+
+  .nextprev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  @media(max-width:600px){.nextprev{grid-template-columns:1fr}}
+  .np{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;padding:16px;transition:.2s}
+  .np:hover{border-color:var(--accent)}
+  .np .k{font-family:var(--mono);font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:.07em}
+  .np strong{display:block;font-size:.95rem;margin-top:5px;line-height:1.35;font-weight:600}
+
+  footer{border-top:1px solid var(--border);margin-top:64px;padding:22px 0 40px;display:flex;justify-content:space-between;
+         gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<script>
+(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}
+if(t!=="dark"&&t!=="light"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+document.documentElement.setAttribute("data-theme",t);})();
+</script>
+<div class="wrap">
+<header>
+    <a class="logo" href="../../">jp<span>.</span>marson</a>
+    <div class="hdr-right">
+      <a class="navlink" href="../../">início</a>
+      <nav class="lang" aria-label="Idioma"><a href="#"><button class="active">PT</button></a><a href="/blog/en/rotina-de-priorizacao-do-backlog/"><button>EN</button></a></nav>
+      <button class="theme-btn" id="themeBtn" aria-label="Tema claro/escuro" title="Tema claro/escuro">&#9790;</button>
+    </div>
+  </header>
+  <main>
+    <a class="back" href="../">← todos os artigos</a>
+    <article>
+      <h1>A rotina de priorização do Backlog</h1>
+      <div class="amet"><span>26 de mai de 2022</span><span class="dot">&middot;</span><span>7 min de leitura</span><span class="ptag">backlog</span><span class="ptag">priorização</span><span class="ptag">produto</span><span class="ptag">agilidade</span></div>
+      <p class="lede">A priorização do backlog é uma rotina e nunca acaba — é como lavar louça. Aqui está o ciclo que eu uso, passo a passo, com as ferramentas de cada etapa.</p>
+      <div class="body"><p>A priorização do backlog é uma rotina e ela nunca acaba, é como lavar louça ou cortar a unha, simples assim.</p>
+<p>Nesse post eu tento passar para vocês detalhes dessa rotina, passo a passo, ideias e ferramentas de como faço. Espero ajudar!</p>
+<p>A rotina de priorização de Backlog é como o ciclo abaixo:</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_52807f66d4154e2583de5e31d3c1db6e~mv2.png/v1/fill/w_980,h_648,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/b92f60_52807f66d4154e2583de5e31d3c1db6e~mv2.png" alt="" loading="lazy"></figure>
+<p>Exemplo de um app de venda de ingresso de cinema — <a href="https://miro.com/app/board/uXjVON9t52U=/?share_link_id=365207571910" target="_blank" rel="noopener">Miro criado para isso aqui</a>.</p>
+<h2>1 — Entender a situação</h2>
+<p>A melhor maneira para entender a situação é conversar com as pessoas de cada área interessada no produto ou etapa do produto pela qual você é responsável como PO/PM.</p>
+<p>Busque entender coisas como:</p>
+<ul><li>Se a visão do produto mudou.</li><li>Se a estratégia da empresa para atingir os objetivos mudou.</li><li>Se os objetivos do produto de curto ou médio prazo mudaram.</li><li>Se uma coisa que vocês planejaram deu errado.</li><li>Se algum fornecedor mudou alguma integração e isso vai quebrar o produto, exigindo ação.</li><li>Se surgiram novas demandas legais vindas de órgãos do governo.</li><li>Se surgiu alguma nova campanha de marketing que vai demandar ação do seu time.</li><li>Se alguma função que você deixou coletando dados deu algum resultado razoável para desligar ou ligar, mudar, melhorar ou criar algo.</li><li>Se as pessoas que estão fazendo discovery descobriram alguma dor nova ou algo que possa ser melhorado.</li><li>Se o time de desenvolvimento está com alguma demanda que eles não aguentam mais ficar sem — pode ser uma automação, testes, refatoração, atualização ou adoção de uma nova biblioteca.</li><li>Se houve um pico de reclamações no time de atendimento ao cliente; acompanhe a lista de itens mais solicitados ou reclamados e pense junto com o time como vocês podem ajudar.</li><li>Se o time de QA encontrou algum bug urgente; entenda também a lista de bugs e suas prioridades.</li><li>Se seu concorrente lançou algo interessante.</li><li>Se algum outro stakeholder possui demanda nova que seja importante para a empresa e para o produto — pode ser de vendas, operações ou outra área.</li></ul>
+<h3>Dicas</h3>
+<ul><li>Você precisa monitorar muita coisa. Tente manter uma reunião semanal com as principais pessoas de cada área para ter um termômetro da situação.</li><li>A conversa cara a cara (pode ser virtual) é a melhor forma de levantar a situação.</li><li>Monitore o seu produto: as métricas também vão te dar alguns insights.</li><li>Converse do CEO ao atendente. Exercite a empatia.</li><li>Compare a situação levantada com o seu plano de trabalho e se sinta confortável caso tenha que mudar algo.</li></ul>
+<h2>2 — Ter uma visão geral e classificada</h2>
+<p>Depois que você levantou a situação, é hora de atualizar ou montar o seu mapa da visão geral.</p>
+<p><strong>Recomendo fortemente você criar um mapa de features.</strong> Eu uso um inspirado em User Story Mapping.</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_8b11deb0ff4444a48d30da419706948d~mv2.png/v1/fill/w_980,h_314,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b92f60_8b11deb0ff4444a48d30da419706948d~mv2.png" alt="" loading="lazy"></figure>
+<p>Os blocos azuis são grandes funções ou pequenos projetos, e os amarelos são funções que precisamos desenvolver e entregar (cards).</p>
+<p>Você não precisa priorizar as demandas nessa etapa de visão geral, só precisa classificá-las. Minha sugestão é usar o método <strong>MoSCoW</strong>:</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_a2ad9bd2cd1a4f57b7055b866a7fb6c6~mv2.png/v1/fill/w_980,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b92f60_a2ad9bd2cd1a4f57b7055b866a7fb6c6~mv2.png" alt="" loading="lazy"></figure>
+<p>Depois de classificá-las, eu coloco os complementos abaixo para facilitar a minha leitura:</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_957e49cb8b36434684b272be63742f84~mv2.png/v1/fill/w_980,h_113,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b92f60_957e49cb8b36434684b272be63742f84~mv2.png" alt="" loading="lazy"></figure>
+<p>Daí seu mapa vai ficar assim:</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_fb17201bfcef4a7d852f2b16cb74d35f~mv2.png/v1/fill/w_980,h_223,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b92f60_fb17201bfcef4a7d852f2b16cb74d35f~mv2.png" alt="" loading="lazy"></figure>
+<h3>Dicas</h3>
+<ul><li>Valide sua classificação com as pessoas das áreas interessadas no produto: atendimento ao cliente, diretoria, operações, vendas, etc.</li><li>Faça desse mapa o seu backlog.</li><li>Mantenha esse mapa atualizado.</li><li>Utilize o backlog do Jira ou outra ferramenta apenas para bugs e outras demandas que não entreguem valor para o cliente final.</li><li>Eu usei o <a href="https://miro.com/" target="_blank" rel="noopener">Miro</a> para fazer esse mapa.</li></ul>
+<h2>3 — Priorizar e planejar</h2>
+<p>Reveja a classificação que você fez na etapa anterior. Veja se ainda faz sentido; se não fizer, reclassifique alguns cards.</p>
+<p>Existem vários métodos para priorizar (RICE, Kano, etc.). Eu gosto da matriz de esforço vs. impacto (valor) e da lista priorizada em conjunto.</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_fadcbc8d82a445e2b51ca14e3d24b1ce~mv2.png/v1/fill/w_806,h_758,al_c,q_90,enc_avif,quality_auto/b92f60_fadcbc8d82a445e2b51ca14e3d24b1ce~mv2.png" alt="" loading="lazy"></figure>
+<p><strong>IMPORTANTE:</strong> nem sempre você poderá seguir o resultado da matriz, pois uma função pode depender de outra estar pronta primeiro. Por causa disso, você deverá checar essa sequência fazendo uma lista priorizada:</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_5fbc46d789714990b7b701c0aca0310c~mv2.png/v1/fill/w_980,h_513,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/b92f60_5fbc46d789714990b7b701c0aca0310c~mv2.png" alt="" loading="lazy"></figure>
+<p>Repare que o primeiro colocado na matriz de esforço vs. impacto nem sempre será o primeiro quando você for priorizar, pois existem as dependências.</p>
+<blockquote><p>Leve em consideração as dependências entre os cards e tente priorizar os cards de maior valor para o negócio ou cliente com maior risco de encontrar problemas durante o desenvolvimento.</p></blockquote>
+<p>Agora que você tem uma lista priorizada, é hora de arrumar um jeito fácil de mostrar a sua visão de priorização. Eu gosto de fazer assim:</p>
+<figure><img src="https://static.wixstatic.com/media/b92f60_29b8a13b15314ad39a37c8f325214374~mv2.png/v1/fill/w_980,h_382,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/b92f60_29b8a13b15314ad39a37c8f325214374~mv2.png" alt="" loading="lazy"></figure>
+<p>Sprints com datas embaixo e os cards que acredito que caibam nas sprints — use e abuse de marcos como o exemplo do Go-live acima.</p>
+<h3>Dicas</h3>
+<ul><li>Chame pelo menos uma pessoa de QA, uma de Desenvolvimento e uma de Negócio para priorizar as demandas na matriz de esforço vs. impacto.</li><li>Chame pelo menos uma pessoa de Desenvolvimento para fazer a lista priorizada após ter preenchido a matriz. Se possível, faça as duas etapas juntas com o maior número de pessoas.</li><li>Apresente a sua ideia de cronograma para os desenvolvedores do seu time. Não queira uma estimativa assinada com sangue: a ideia aqui é ter uma noção de grandeza, do tipo é 8 ou 80, uma ou duas sprints.</li><li>Não planeje mais do que 3 sprints para frente. Vai por mim, não vale a pena, pois tudo pode mudar — e vai mudar.</li></ul>
+<h2>4 — Validar a proposta de priorização e cronograma</h2>
+<p>A essa altura essa proposta já nem é mais sua, é da empresa como um todo, pois você já vem trazendo sugestões, validando e melhorando as ideias com outras pessoas como QAs, devs e pessoas de negócio.</p>
+<p>Mas agora é a hora de dar uma última validada no cronograma que você montou. Valide com o seu chefe, com diretores, com parceiros de áreas, com fornecedores — aqui quanto mais, melhor.</p>
+<p>Esse cronograma é fundamental para te dar um pouco de paz de espírito para trabalhar, pois uma vez validado, vocês vão trabalhar no discovery e no refinamento de cada uma dessas demandas antes delas entrarem em desenvolvimento.</p>
+<h3>Dicas</h3>
+<ul><li>Valide com o máximo de pessoas possível.</li><li>Deixe esse cronograma público: ninguém pode alegar que não teve visibilidade (retire muletas).</li><li>Mantenha esse cronograma atualizado.</li><li>Não planeje mais do que 3 sprints para frente.</li></ul>
+<h2>5 — Passar a prioridade adiante e colher novidades</h2>
+<p>Essa última etapa do ciclo é quando você vai de fato apresentar os cards para o time de desenvolvimento. Em muitas empresas é a hora da Planning.</p>
+<p>Eu espero que entre a etapa 4 e a 5 você tenha criado todos os cards com todas as informações necessárias para um bom desenvolvimento e testes.</p>
+<p>Durante a passagem de prioridade para o time de desenvolvimento podem surgir algumas ideias. Seja flexível, escute atentamente, veja se faz sentido e não tenha medo de mudar algo em cima da hora.</p>
+<p>Veja o resultado da Sprint anterior: talvez alguma coisa tenha que ser terminada na próxima Sprint, e isso vai impactar o seu cronograma e quem sabe a sua priorização. Esse resultado é uma das fontes para entender a situação.</p>
+<p>Pronto — agora você volta para a etapa um e começa tudo de novo para as próximas sprints!</p>
+<h3>Dicas</h3>
+<ul><li>Dica para o seu time: durante a planning, mostre qual é o norte, para onde queremos ir, qual é o objetivo de negócio e o impacto que esses novos cards levarão para os clientes.</li><li>Deixe pelo menos 8h de trabalho para o time de desenvolvimento fazer o plano de como construir a solução, e só então devolver o que cabe ou não cabe na Sprint.</li></ul></div>
+      <div class="engage" id="engage" data-slug="rotina-de-priorizacao-do-backlog">
+      <button class="like" id="likeBtn"><span class="heart">&#9829;</span><span id="likeCount">0</span></button>
+      <span class="views" id="viewsBox" style="visibility:hidden">&#128065; <span id="viewCount">0</span> leituras</span>
+      <div class="share">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://api.whatsapp.com/send?text=A%20rotina%20de%20priorização%20do%20Backlog%20https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+      <div class="nextprev"><a class="np" href="../apague-cards-com-mais-de-6-meses/"><span class="k">Próximo</span><strong>Apague cards com mais de 6 meses</strong></a></div>
+    </article>
+  </main>
+<footer>
+    <span>&copy; 2026 <a href="../../">jpmarson.com.br</a></span>
+    <span><a href="../../rss.xml">RSS</a> &middot; <a href="https://www.linkedin.com/in/jpmarson" target="_blank" rel="noopener">LinkedIn</a></span>
+  </footer>
+</div>
+<script>
+var themeBtn=document.getElementById("themeBtn");
+var mq=window.matchMedia("(prefers-color-scheme: dark)");
+function applyTheme(t,persist){document.documentElement.setAttribute("data-theme",t);
+  themeBtn.textContent=t==="dark"?"\u2600":"\u263e";
+  if(persist){try{localStorage.setItem("theme",t);}catch(e){}}}
+themeBtn.addEventListener("click",function(){
+  var cur=document.documentElement.getAttribute("data-theme");
+  applyTheme(cur==="dark"?"light":"dark",true);});
+mq.addEventListener("change",function(e){var s=null;try{s=localStorage.getItem("theme");}catch(err){}
+  if(!s)applyTheme(e.matches?"dark":"light",false);});
+applyTheme(document.documentElement.getAttribute("data-theme")||"light",false);
+
+var API_BASE = "";  /* ex: "https://api.jpmarson.com.br" */
+(function(){
+  var box=document.getElementById("engage");
+  if(!box) return;
+  if(!API_BASE){ box.style.display="none"; return; }
+  var slug=box.dataset.slug;
+  var likeBtn=document.getElementById("likeBtn");
+  var likeN=document.getElementById("likeCount");
+  var viewN=document.getElementById("viewCount");
+  var viewsBox=document.getElementById("viewsBox");
+  function fmt(n){ return new Intl.NumberFormat(document.documentElement.lang||"pt-BR").format(n); }
+  /* registra a leitura (o backend deduplica por sessão) */
+  fetch(API_BASE+"/api/view/"+encodeURIComponent(slug),{method:"POST"})
+    .then(function(r){return r.json();})
+    .then(function(d){ if(d&&typeof d.views==="number"){ viewN.textContent=fmt(d.views); viewsBox.style.visibility="visible"; } })
+    .catch(function(){ viewsBox.style.display="none"; });
+  /* estado do like */
+  var liked=false;
+  try{ liked=localStorage.getItem("liked:"+slug)==="1"; }catch(e){}
+  if(liked) likeBtn.classList.add("on");
+  fetch(API_BASE+"/api/likes/"+encodeURIComponent(slug))
+    .then(function(r){return r.json();})
+    .then(function(d){ if(d&&typeof d.likes==="number") likeN.textContent=fmt(d.likes); })
+    .catch(function(){});
+  likeBtn.addEventListener("click",function(){
+    var on=likeBtn.classList.toggle("on");
+    try{ localStorage.setItem("liked:"+slug, on?"1":"0"); }catch(e){}
+    var cur=parseInt((likeN.textContent||"0").replace(/\D/g,""),10)||0;
+    likeN.textContent=fmt(Math.max(0,cur+(on?1:-1)));
+    fetch(API_BASE+"/api/likes/"+encodeURIComponent(slug),{method:on?"POST":"DELETE"})
+      .then(function(r){return r.json();})
+      .then(function(d){ if(d&&typeof d.likes==="number") likeN.textContent=fmt(d.likes); })
+      .catch(function(){});
+  });
+})();
+</script>
+</body>
+</html>

@@ -6,14 +6,46 @@
   <atom:link href="https://jpmarson.com.br/rss-en.xml" rel="self" type="application/rss+xml"/>
   <description>Articles by João Paulo Marson on digital product management, engineering team leadership, vibe coding and technology in financial services.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 28 Sep 2026 00:58:06 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 02:35:12 +0000</lastBuildDate>
   <item>
-    <title>The manager who started building again (and what it changed)</title>
-    <link>https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/</link>
-    <guid isPermaLink="true">https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/</guid>
-    <description>I spent years managing people who write code without writing a line myself. Going back to building — with AI alongside — changed my productivity less than it changed the quality of my questions.</description>
-    <pubDate>Sun, 27 Sep 2026 00:00:00 +0000</pubDate>
-    <category>vibe coding</category><category>product management</category><category>leadership</category>
+    <title>An instrument to help you prioritize the backlog</title>
+    <link>https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/</guid>
+    <description>The EOC instrument — Strategy, Objectives and Customers. A weighted questionnaire that makes the reasoning behind every prioritization decision explicit.</description>
+    <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+    <category>backlog</category><category>prioritization</category><category>product</category><category>tools</category>
+  </item>
+  <item>
+    <title>Lessons for anyone using — or about to use — Scrum</title>
+    <link>https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/</guid>
+    <description>Fifteen practical lessons about Sprints, prioritization, ceremonies and scope — things I wish I had known before getting them wrong.</description>
+    <pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate>
+    <category>scrum</category><category>agile</category><category>leadership</category><category>product</category>
+  </item>
+  <item>
+    <title>There is not just one right path!</title>
+    <link>https://jpmarson.com.br/blog/en/nao-existe-apenas-um-caminho-certo/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/en/nao-existe-apenas-um-caminho-certo/</guid>
+    <description>Be wary when someone tries to sell you an absolute truth about how to build product. There is no silver bullet.</description>
+    <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+    <category>agile</category><category>product</category><category>leadership</category>
+  </item>
+  <item>
+    <title>Delete every card older than 6 months</title>
+    <link>https://jpmarson.com.br/blog/en/apague-cards-com-mais-de-6-meses/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/en/apague-cards-com-mais-de-6-meses/</guid>
+    <description>If a card has been sitting in your backlog for more than six months, it does not hurt enough. Delete it — you will feel free afterwards.</description>
+    <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+    <category>backlog</category><category>prioritization</category><category>product</category>
+  </item>
+  <item>
+    <title>The backlog prioritization routine</title>
+    <link>https://jpmarson.com.br/blog/en/rotina-de-priorizacao-do-backlog/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/en/rotina-de-priorizacao-do-backlog/</guid>
+    <description>Backlog prioritization is a routine and it never ends — it is like doing the dishes. Here is the cycle I use, step by step, with the tools for each stage.</description>
+    <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+    <category>backlog</category><category>prioritization</category><category>product</category><category>agile</category>
   </item>
 </channel>
 </rss>

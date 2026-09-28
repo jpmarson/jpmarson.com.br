@@ -6,14 +6,46 @@
   <atom:link href="https://jpmarson.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Artigos de João Paulo Marson sobre gestão de produtos digitais, liderança de times de desenvolvimento, vibe coding e tecnologia no mercado financeiro.</description>
   <language>pt-BR</language>
-  <lastBuildDate>Mon, 28 Sep 2026 00:58:06 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 02:35:12 +0000</lastBuildDate>
   <item>
-    <title>O gestor que voltou a codar (e o que isso mudou nas minhas decisões)</title>
-    <link>https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/</link>
-    <guid isPermaLink="true">https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/</guid>
-    <description>Passei anos gerenciando quem escreve código sem escrever nenhuma linha. Voltar a construir — com IA do lado — mudou menos a minha produtividade e mais a qualidade das minhas perguntas.</description>
-    <pubDate>Sun, 27 Sep 2026 00:00:00 +0000</pubDate>
-    <category>vibe coding</category><category>gestão de produto</category><category>liderança</category>
+    <title>Um instrumento para te ajudar a priorizar o backlog</title>
+    <link>https://jpmarson.com.br/blog/instrumento-para-priorizar-o-backlog/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/instrumento-para-priorizar-o-backlog/</guid>
+    <description>O instrumento EOC — Estratégia, Objetivos e Clientes. Um questionário com pesos que torna explícito o raciocínio por trás de cada decisão de priorização.</description>
+    <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+    <category>backlog</category><category>priorização</category><category>produto</category><category>ferramentas</category>
+  </item>
+  <item>
+    <title>Aprendizados para quem usa ou quer usar Scrum</title>
+    <link>https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/</guid>
+    <description>Quinze aprendizados práticos sobre Sprints, priorização, cerimônias e escopo — coisas que eu gostaria de ter sabido antes de errar.</description>
+    <pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate>
+    <category>scrum</category><category>agilidade</category><category>liderança</category><category>produto</category>
+  </item>
+  <item>
+    <title>Não existe apenas um caminho certo!</title>
+    <link>https://jpmarson.com.br/blog/nao-existe-apenas-um-caminho-certo/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/nao-existe-apenas-um-caminho-certo/</guid>
+    <description>Fique de orelha em pé quando quiserem te vender uma verdade absoluta sobre como desenvolver produto. Não existe bala de prata.</description>
+    <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+    <category>agilidade</category><category>produto</category><category>liderança</category>
+  </item>
+  <item>
+    <title>Apague cards com mais de 6 meses</title>
+    <link>https://jpmarson.com.br/blog/apague-cards-com-mais-de-6-meses/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/apague-cards-com-mais-de-6-meses/</guid>
+    <description>Se um card está parado no backlog há mais de seis meses, ele não dói o suficiente. Apague — você vai se sentir livre depois disso.</description>
+    <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+    <category>backlog</category><category>priorização</category><category>produto</category>
+  </item>
+  <item>
+    <title>A rotina de priorização do Backlog</title>
+    <link>https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/rotina-de-priorizacao-do-backlog/</guid>
+    <description>A priorização do backlog é uma rotina e nunca acaba — é como lavar louça. Aqui está o ciclo que eu uso, passo a passo, com as ferramentas de cada etapa.</description>
+    <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+    <category>backlog</category><category>priorização</category><category>produto</category><category>agilidade</category>
   </item>
 </channel>
 </rss>

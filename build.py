@@ -77,6 +77,8 @@ STR = {
 def _inline(t):
     """Formatação inline. O texto já deve vir escapado."""
     t = re.sub(r'`([^`]+)`', lambda m: "<code>%s</code>" % m.group(1), t)
+    t = re.sub(r'!\[([^\]]*)\]\(([^)\s]+)\)',
+               lambda m: '<img src="%s" alt="%s" loading="lazy">' % (m.group(2), m.group(1)), t)
     t = re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)',
                lambda m: '<a href="%s"%s>%s</a>' % (
                    m.group(2),
@@ -107,6 +109,15 @@ def markdown(src):
         # linha horizontal
         if re.match(r'^\s*---+\s*$', ln):
             out.append("<hr>")
+            i += 1
+            continue
+
+        # imagem isolada (vira figura, com legenda opcional vinda do alt)
+        m = re.match(r'^!\[([^\]]*)\]\(([^)\s]+)\)\s*$', ln)
+        if m:
+            cap = ('<figcaption>%s</figcaption>' % _inline(html.escape(m.group(1)))) if m.group(1) else ""
+            out.append('<figure><img src="%s" alt="%s" loading="lazy">%s</figure>'
+                       % (html.escape(m.group(2), quote=True), html.escape(m.group(1), quote=True), cap))
             i += 1
             continue
 
@@ -399,11 +410,11 @@ def build_post(p, lang, prev, nxt):
         cards = ""
         if prev and prev.get(lang):
             cards += '<a class="np" href="%s"><span class="k">%s</span><strong>%s</strong></a>' % (
-                html.escape("../../" + ("en/" if lang == "en" else "") + prev["slug"] + "/", quote=True),
+                html.escape("../" + prev["slug"] + "/", quote=True),
                 html.escape(s["prev"]), html.escape(prev[lang].get("title", "")))
         if nxt and nxt.get(lang):
             cards += '<a class="np" href="%s"><span class="k">%s</span><strong>%s</strong></a>' % (
-                html.escape("../../" + ("en/" if lang == "en" else "") + nxt["slug"] + "/", quote=True),
+                html.escape("../" + nxt["slug"] + "/", quote=True),
                 html.escape(s["next"]), html.escape(nxt[lang].get("title", "")))
         if cards:
             np = '<div class="nextprev">%s</div>' % cards

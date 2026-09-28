@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aprendizados para quem usa ou quer usar Scrum — João Paulo Marson</title>
+<meta name="description" content="Quinze aprendizados práticos sobre Sprints, priorização, cerimônias e escopo — coisas que eu gostaria de ter sabido antes de errar.">
+<meta name="author" content="João Paulo Marson">
+<link rel="canonical" href="https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="JP Marson">
+<meta property="og:url" content="https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<meta property="og:title" content="Aprendizados para quem usa ou quer usar Scrum — João Paulo Marson">
+<meta property="og:description" content="Quinze aprendizados práticos sobre Sprints, priorização, cerimônias e escopo — coisas que eu gostaria de ter sabido antes de errar.">
+<meta property="og:image" content="https://jpmarson.com.br/covers/aprendizados-para-quem-usa-ou-quer-usar-scrum.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aprendizados para quem usa ou quer usar Scrum — João Paulo Marson">
+<meta name="twitter:description" content="Quinze aprendizados práticos sobre Sprints, priorização, cerimônias e escopo — coisas que eu gostaria de ter sabido antes de errar.">
+<meta name="twitter:image" content="https://jpmarson.com.br/covers/aprendizados-para-quem-usa-ou-quer-usar-scrum.png">
+<link rel="alternate" type="application/rss+xml" title="JP Marson" href="https://jpmarson.com.br/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a66ff'/><text x='50' y='68' font-size='48' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'>jp</text></svg>">
+
+<link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<link rel="alternate" hreflang="en" href="https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<link rel="alternate" hreflang="x-default" href="https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting",
+ "headline":"Aprendizados para quem usa ou quer usar Scrum",
+ "description":"Quinze aprendizados práticos sobre Sprints, priorização, cerimônias e escopo — coisas que eu gostaria de ter sabido antes de errar.",
+ "image":"https://jpmarson.com.br/covers/aprendizados-para-quem-usa-ou-quer-usar-scrum.png",
+ "datePublished":"2022-12-22","dateModified":"2022-12-22",
+ "inLanguage":"pt-BR",
+ "wordCount":1061,
+ "keywords":["scrum","agilidade","liderança","produto"],
+ "mainEntityOfPage":{"@type":"WebPage","@id":"https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/"},
+ "author":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/",
+   "sameAs":["https://www.linkedin.com/in/jpmarson","https://github.com/jpmarson"]},
+ "publisher":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/"},
+ "isPartOf":{"@type":"Blog","name":"João Paulo Marson","url":"https://jpmarson.com.br/blog/"}}
+</script>
+<style>
+  :root{
+    --bg:#fafbfd; --surface:#ffffff; --text:#0f172a; --muted:#5b6b83;
+    --accent:#0a66ff; --accent-soft:#e8f0ff; --border:#e4e9f2;
+    --tag-border:#cfe0ff; --shadow:rgba(10,102,255,.08);
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,sans-serif;
+  }
+  [data-theme="dark"]{
+    --bg:#0b1120; --surface:#121b30; --text:#e6ecf7; --muted:#93a3bd;
+    --accent:#4d8dff; --accent-soft:#14233f; --border:#1e2a44;
+    --tag-border:#264573; --shadow:rgba(0,0,0,.35);
+  }
+  [data-theme="dark"] .lang button.active{color:#0b1120}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:light}
+  html[data-theme="dark"]{color-scheme:dark}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+       -webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative}
+  header{display:flex;justify-content:space-between;align-items:center;padding:28px 0;gap:12px;flex-wrap:wrap}
+  .logo{font-family:var(--mono);font-weight:700;font-size:1.05rem;letter-spacing:-.5px;color:var(--text);text-decoration:none}
+  .logo span{color:var(--accent)}
+  .hdr-right{display:flex;align-items:center;gap:10px}
+  .navlink{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;padding:5px 10px;border-radius:8px;transition:.2s}
+  .navlink:hover{color:var(--accent);background:var(--accent-soft)}
+  .lang{display:flex;gap:4px;border:1px solid var(--border);border-radius:999px;padding:3px;background:var(--surface)}
+  .lang button{font-family:var(--mono);font-size:.72rem;border:0;background:transparent;color:var(--muted);
+               padding:5px 12px;border-radius:999px;cursor:pointer;transition:.2s}
+  .lang button.active{background:var(--accent);color:#fff}
+  .lang button:not(.active):hover{color:var(--accent)}
+  .theme-btn{width:34px;height:34px;border-radius:999px;border:1px solid var(--border);background:var(--surface);
+             color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+             font-size:1rem;transition:.2s}
+  .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+  main{padding:32px 0 24px}
+  a{color:var(--accent)}
+
+  /* índice */
+  .page-tag{font-family:var(--mono);font-size:.78rem;color:var(--accent);background:var(--accent-soft);
+            border:1px solid var(--tag-border);display:inline-block;padding:4px 12px;border-radius:999px;margin-bottom:20px}
+  h1.page-title{font-size:clamp(2rem,6vw,2.9rem);letter-spacing:-.03em;line-height:1.1;font-weight:800}
+  .page-sub{color:var(--muted);font-size:1.05rem;margin-top:12px;max-width:60ch}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 0}
+  .filter{font-family:var(--mono);font-size:.74rem;background:var(--surface);border:1px solid var(--border);
+          color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer;transition:.2s}
+  .filter:hover{border-color:var(--accent);color:var(--accent)}
+  .filter.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  [data-theme="dark"] .filter.on{color:#0b1120}
+  .postlist{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+  .pcard{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);
+         border-radius:14px;padding:22px;transition:.25s}
+  .pcard:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow)}
+  .pmeta{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .pmeta .dot{opacity:.5}
+  .pcard h2{font-size:1.22rem;letter-spacing:-.015em;margin:8px 0 6px;line-height:1.3}
+  .pcard p{color:var(--muted);font-size:.94rem}
+  .ptags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+  .ptag{font-family:var(--mono);font-size:.68rem;color:var(--accent);background:var(--accent-soft);
+        border:1px solid var(--tag-border);padding:3px 9px;border-radius:999px}
+  .empty{color:var(--muted);font-size:.95rem;padding:24px 0}
+
+  /* artigo */
+  .back{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:22px}
+  .back:hover{color:var(--accent)}
+  article h1{font-size:clamp(1.9rem,5.4vw,2.6rem);letter-spacing:-.03em;line-height:1.16;font-weight:800}
+  .amet{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .lede{font-size:1.1rem;color:var(--muted);margin-top:16px;padding-left:16px;border-left:3px solid var(--accent)}
+  .body{margin-top:32px;font-size:1.02rem}
+  .body h2{font-size:1.35rem;letter-spacing:-.015em;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+  .body h3{font-size:1.1rem;margin:26px 0 8px}
+  .body p{margin:14px 0}
+  .body ul,.body ol{margin:14px 0;padding-left:22px}
+  .body li{margin:6px 0}
+  .body blockquote{margin:20px 0;padding:14px 18px;background:var(--accent-soft);border-left:3px solid var(--accent);
+                   border-radius:0 10px 10px 0;color:var(--text)}
+  .body blockquote p{margin:0}
+  .body code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);border:1px solid var(--tag-border);
+             padding:1px 6px;border-radius:5px}
+  .body pre{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;
+            overflow-x:auto;margin:18px 0}
+  .body pre code{background:none;border:0;padding:0;font-size:.86rem;line-height:1.55}
+  .body img{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--border);background:var(--surface)}
+  .body figure{margin:24px 0;text-align:center}
+  .body figcaption{font-size:.84rem;color:var(--muted);margin-top:9px;line-height:1.45}
+  .body hr{border:0;border-top:1px solid var(--border);margin:28px 0}
+  .body a{text-decoration:underline;text-underline-offset:3px}
+
+  /* engajamento */
+  .engage{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid var(--border)}
+  .like{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.84rem;cursor:pointer;
+        background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:10px 18px;border-radius:999px;transition:.2s}
+  .like:hover{border-color:var(--accent);color:var(--accent)}
+  .like.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  [data-theme="dark"] .like.on{color:#0b1120}
+  .like .heart{font-size:1rem;line-height:1}
+  .like.on .heart{animation:pop .32s ease}
+  @keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.45)}100%{transform:scale(1)}}
+  .views{font-family:var(--mono);font-size:.78rem;color:var(--muted);display:inline-flex;align-items:center;gap:7px}
+  .share{margin-left:auto;display:flex;gap:8px}
+  .share a{font-family:var(--mono);font-size:.76rem;text-decoration:none;color:var(--muted);border:1px solid var(--border);
+           background:var(--surface);padding:8px 14px;border-radius:999px;transition:.2s}
+  .share a:hover{border-color:var(--accent);color:var(--accent)}
+
+  .nextprev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  @media(max-width:600px){.nextprev{grid-template-columns:1fr}}
+  .np{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;padding:16px;transition:.2s}
+  .np:hover{border-color:var(--accent)}
+  .np .k{font-family:var(--mono);font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:.07em}
+  .np strong{display:block;font-size:.95rem;margin-top:5px;line-height:1.35;font-weight:600}
+
+  footer{border-top:1px solid var(--border);margin-top:64px;padding:22px 0 40px;display:flex;justify-content:space-between;
+         gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<script>
+(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}
+if(t!=="dark"&&t!=="light"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+document.documentElement.setAttribute("data-theme",t);})();
+</script>
+<div class="wrap">
+<header>
+    <a class="logo" href="../../">jp<span>.</span>marson</a>
+    <div class="hdr-right">
+      <a class="navlink" href="../../">início</a>
+      <nav class="lang" aria-label="Idioma"><a href="#"><button class="active">PT</button></a><a href="/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/"><button>EN</button></a></nav>
+      <button class="theme-btn" id="themeBtn" aria-label="Tema claro/escuro" title="Tema claro/escuro">&#9790;</button>
+    </div>
+  </header>
+  <main>
+    <a class="back" href="../">← todos os artigos</a>
+    <article>
+      <h1>Aprendizados para quem usa ou quer usar Scrum</h1>
+      <div class="amet"><span>22 de dez de 2022</span><span class="dot">&middot;</span><span>5 min de leitura</span><span class="ptag">scrum</span><span class="ptag">agilidade</span><span class="ptag">liderança</span><span class="ptag">produto</span></div>
+      <p class="lede">Quinze aprendizados práticos sobre Sprints, priorização, cerimônias e escopo — coisas que eu gostaria de ter sabido antes de errar.</p>
+      <div class="body"><figure><img src="https://static.wixstatic.com/media/b92f60_555fd61b7efa43f2981c227f41e1bbea~mv2.jpg/v1/fill/w_640,h_427,al_c,q_80,enc_avif,quality_auto/b92f60_555fd61b7efa43f2981c227f41e1bbea~mv2.jpg" alt="" loading="lazy"></figure>
+<p><strong>1.</strong> Não espere 100% dos cards entregues de uma Sprint, mas uma taxa entre 85% e 110%. <strong>Por quê?</strong> Porque a vida muda, coisas acontecem, fornecedores pisam na bola, pessoas ficam doentes, tecnologias falham, etc… Uma taxa como essa já vai te dar uma ótima previsibilidade.</p>
+<p><strong>2.</strong> Deixe clara a <strong>prioridade dos cards dentro da sua Sprint</strong>. Se não der para entregar todos, que sejam entregues os mais importantes. <strong>Por quê?</strong> Mesma resposta do item acima, mas com uma dica: certifique-se de que todos do time entenderam isso.</p>
+<p><strong>3.</strong> Scrum não é bom para quem <strong>não tem um objetivo</strong>. <strong>Por quê?</strong> Porque se a sua empresa não tiver um objetivo claro de onde quer chegar e como, a chance de alterarem o escopo no meio da Sprint porque alguma coisa aconteceu é enorme.</p>
+<p><strong>4.</strong> Scrum não é bom para times <strong>orientados a gambiarra</strong>. <strong>Por quê?</strong> Porque quando esse produto entrar em produção vai aparecer uma enxurrada de bugs todos os dias, e isso vai atropelar o planejamento da Sprint, alterando muito o escopo e deixando o time meio maluco. <strong>Os bugs serão corrigidos com mais gambiarras que gerarão mais bugs, levando à loucura ao infinito.</strong></p>
+<p><strong>5.</strong> Tente levar para a Sprint um escopo <strong>equilibrado</strong> entre demandas de front, de back e de outra tecnologia que vocês tiverem. <strong>Por quê?</strong> Porque o time de desenvolvimento vai montar uma estratégia para entregar o máximo da Sprint baseado no conhecimento e no perfil das pessoas. Aqui é importante reforçar a prioridade da Sprint, para não entregarem cards menos importantes por causa do conhecimento do dev em vez de um do topo da lista.</p>
+<p><strong>6.</strong> Um escopo dos sonhos de uma Sprint seria algo <strong>equilibrado</strong> entre novas features, melhorias, bugs e débitos técnicos. <strong>Por quê?</strong> Para que tudo caminhe lado a lado: os devs ficariam felizes com os débitos técnicos sendo resolvidos, os clientes com os bugs tratados e novas funções, etc… Mas o mundo não é tão perfeito assim, logo você terá sprints mais focadas em um ou outro tipo de demanda — e está tudo bem.</p>
+<p><strong>7.</strong> Uma demanda pode não caber em apenas uma Sprint, e está tudo bem. Imagino que você já saiba o conceito de quebrar e refinar as demandas para que sejam do menor tamanho possível. Agora imagine que você já discutiu com o time e não dá para quebrar mais: a demanda é grande mesmo e não vai caber na sua Sprint de 2 semanas. Faça um acordo com o time de <strong>entregar em 2 sprints</strong>.</p>
+<p><strong>8.</strong> Não aumente a quantidade de dias da sua Sprint para atingir um objetivo específico ou por causa de um momento de <strong>crise na sua empresa</strong>. Eu já fiz isso com a minha equipe em algumas situações e todas se mostraram erradas. Mantenha o tamanho da sua Sprint — as Sprints são curtas exatamente para você poder avaliar se estão no caminho correto, se o que foi feito foi efetivo ou não, conhecer novidades que surgiram nos últimos dias e ajustar as demandas para a próxima rodada.</p>
+<p><strong>9.</strong> Mantenha a consistência das suas cerimônias de demonstração e retrospectiva. <strong>Por quê?</strong> Só a consistência vai te levar no caminho da melhoria contínua, seja do produto desenvolvido ou dos processos internos do time. Não subestime o poder disso no médio prazo. Se vocês não tiverem consistência, a cerimônia cai em <strong>descrédito</strong>.</p>
+<p><strong>10.</strong> Não quer fazer <strong>reunião diária</strong>, quer fazer só alguns dias por semana ou só por texto? Está tudo bem, desde que:</p>
+<ul><li>O time esteja entregando na taxa esperada (item 1).</li><li>A comunicação do time funcione, dando visibilidade dos problemas para pedir ajuda o quanto antes (às vezes dá tempo de salvar e entregar um item que estava com impedimento) e informar com antecedência as pessoas que esperavam uma funcionalidade que não será entregue, tentando uma negociação.</li></ul>
+<p><strong>11.</strong> Faça a reunião de planejamento com o time em um <strong>nível mais alto</strong>: explique quais problemas serão resolvidos, o impacto na vida do cliente e leve requisitos claros. Sempre que possível, apresente previamente para alguns devs o que será levado para a reunião de planejamento, para refinar as demandas. <strong>Por quê?</strong> Porque as suas demandas vão chegar refinadas e as pessoas vão saber o motivo de estar trabalhando na demanda A ou B.</p>
+<p><strong>12.</strong> Após a reunião de planejamento, <strong>dê um dia ou algumas horas</strong> para o time de desenvolvimento:</p>
+<ul><li>Planejar o desenvolvimento de cada item (a solução técnica).</li><li>Quebrar as demandas em sub-tasks.</li><li>Definir responsáveis para cada sub-task.</li><li>Pontuar as demandas, se eles quiserem. Particularmente não vejo sentido em pontuar — acredito mais em comprometimento da equipe em entregar o que ela prometeu.</li><li>Definir quais demandas caberão ou não na Sprint.</li></ul>
+<p><strong>13.</strong> Tente fazer com que o time de desenvolvimento apresente a reunião de demonstração. <strong>Por quê?</strong> <strong>Porque a entrega foi desse time</strong> — nada mais justo que eles apresentarem. Ajude o time se estiverem falando muito <strong>&quot;tecniquês&quot;</strong>: explique que é uma reunião para qualquer pessoa da empresa interessada naquele assunto, e elas não são devs. Anote as sugestões dadas durante a reunião.</p>
+<p><strong>14.</strong> Se você tiver que mudar o escopo da Sprint colocando um novo card, reúna o time e negocie. Veja se cabe sem tirar nenhum outro card ou definam juntos qual vai sair. <strong>Por quê?</strong> Porque se tudo correu como o previsto não vai caber mais trabalho no mesmo prazo, e você já precisa <strong>comunicar</strong> quem está esperando a função do card que sairá da Sprint.</p>
+<p><strong>15.</strong> Registre os bugs de uma demanda ainda dentro da Sprint em uma <strong>sub-task</strong> do tipo bug. <strong>Por quê?</strong> Às vezes identificamos vários pequenos problemas durante o desenvolvimento de uma função, e registrá-los nos comentários do card não é legal — pode ficar difícil identificar se o erro já foi corrigido ou não, e a quantidade de retrabalho entre dev e QA.</p>
+<h2>Vai por mim</h2>
+<ul><li>Scrum é bom (um dia vou escrever por que Scrum é bom).</li><li>A diretoria esquece dos débitos técnicos combinados e vai te cobrar depois: &quot;por que isso está assim e não assado?&quot;.</li><li>Sempre, sempre desenhe uma funcionalidade da melhor maneira possível. Alguns débitos técnicos se vingam depois de lançados.</li></ul>
+<p>Quero manter esse post vivo e ir adicionando coisas aqui. Se sentiu falta de algo ou tem dúvida, por favor me envie.</p></div>
+      <div class="engage" id="engage" data-slug="aprendizados-para-quem-usa-ou-quer-usar-scrum">
+      <button class="like" id="likeBtn"><span class="heart">&#9829;</span><span id="likeCount">0</span></button>
+      <span class="views" id="viewsBox" style="visibility:hidden">&#128065; <span id="viewCount">0</span> leituras</span>
+      <div class="share">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://api.whatsapp.com/send?text=Aprendizados%20para%20quem%20usa%20ou%20quer%20usar%20Scrum%20https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+      <div class="nextprev"><a class="np" href="../nao-existe-apenas-um-caminho-certo/"><span class="k">Anterior</span><strong>Não existe apenas um caminho certo!</strong></a><a class="np" href="../instrumento-para-priorizar-o-backlog/"><span class="k">Próximo</span><strong>Um instrumento para te ajudar a priorizar o backlog</strong></a></div>
+    </article>
+  </main>
+<footer>
+    <span>&copy; 2026 <a href="../../">jpmarson.com.br</a></span>
+    <span><a href="../../rss.xml">RSS</a> &middot; <a href="https://www.linkedin.com/in/jpmarson" target="_blank" rel="noopener">LinkedIn</a></span>
+  </footer>
+</div>
+<script>
+var themeBtn=document.getElementById("themeBtn");
+var mq=window.matchMedia("(prefers-color-scheme: dark)");
+function applyTheme(t,persist){document.documentElement.setAttribute("data-theme",t);
+  themeBtn.textContent=t==="dark"?"\u2600":"\u263e";
+  if(persist){try{localStorage.setItem("theme",t);}catch(e){}}}
+themeBtn.addEventListener("click",function(){
+  var cur=document.documentElement.getAttribute("data-theme");
+  applyTheme(cur==="dark"?"light":"dark",true);});
+mq.addEventListener("change",function(e){var s=null;try{s=localStorage.getItem("theme");}catch(err){}
+  if(!s)applyTheme(e.matches?"dark":"light",false);});
+applyTheme(document.documentElement.getAttribute("data-theme")||"light",false);
+
+var API_BASE = "";  /* ex: "https://api.jpmarson.com.br" */
+(function(){
+  var box=document.getElementById("engage");
+  if(!box) return;
+  if(!API_BASE){ box.style.display="none"; return; }
+  var slug=box.dataset.slug;
+  var likeBtn=document.getElementById("likeBtn");
+  var likeN=document.getElementById("likeCount");
+  var viewN=document.getElementById("viewCount");
+  var viewsBox=document.getElementById("viewsBox");
+  function fmt(n){ return new Intl.NumberFormat(document.documentElement.lang||"pt-BR").format(n); }
+  /* registra a leitura (o backend deduplica por sessão) */
+  fetch(API_BASE+"/api/view/"+encodeURIComponent(slug),{method:"POST"})
+    .then(function(r){return r.json();})
+    .then(function(d){ if(d&&typeof d.views==="number"){ viewN.textContent=fmt(d.views); viewsBox.style.visibility="visible"; } })
+    .catch(function(){ viewsBox.style.display="none"; });
+  /* estado do like */
+  var liked=false;
+  try{ liked=localStorage.getItem("liked:"+slug)==="1"; }catch(e){}
+  if(liked) likeBtn.classList.add("on");
+  fetch(API_BASE+"/api/likes/"+encodeURIComponent(slug))
+    .then(function(r){return r.json();})
+    .then(function(d){ if(d&&typeof d.likes==="number") likeN.textContent=fmt(d.likes); })
+    .catch(function(){});
+  likeBtn.addEventListener("click",function(){
+    var on=likeBtn.classList.toggle("on");
+    try{ localStorage.setItem("liked:"+slug, on?"1":"0"); }catch(e){}
+    var cur=parseInt((likeN.textContent||"0").replace(/\D/g,""),10)||0;
+    likeN.textContent=fmt(Math.max(0,cur+(on?1:-1)));
+    fetch(API_BASE+"/api/likes/"+encodeURIComponent(slug),{method:on?"POST":"DELETE"})
+      .then(function(r){return r.json();})
+      .then(function(d){ if(d&&typeof d.likes==="number") likeN.textContent=fmt(d.likes); })
+      .catch(function(){});
+  });
+})();
+</script>
+</body>
+</html>

@@ -2,8 +2,8 @@
   <rect width="1200" height="630" fill="#fafbfd"/>
   <rect x="0" y="0" width="1200" height="10" fill="#0a66ff"/>
   <text x="90" y="120" font-family="DejaVu Sans Mono, monospace" font-size="24" fill="#0a66ff">jp.marson</text>
-  <text x="90" y="168" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#5b6b83">vibe coding · gestão de produto · liderança</text>
-  <text x="90" y="236" font-family="DejaVu Sans, sans-serif" font-size="56" font-weight="bold" fill="#0f172a">O gestor que voltou a codar (e</text><text x="90" y="302" font-family="DejaVu Sans, sans-serif" font-size="56" font-weight="bold" fill="#0f172a">o que isso mudou nas minhas</text><text x="90" y="368" font-family="DejaVu Sans, sans-serif" font-size="56" font-weight="bold" fill="#0f172a">decisões)</text>
+  <text x="90" y="168" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#5b6b83">backlog · priorização · produto</text>
+  <text x="90" y="268" font-family="DejaVu Sans, sans-serif" font-size="56" font-weight="bold" fill="#0f172a">Apague cards com mais de 6</text><text x="90" y="334" font-family="DejaVu Sans, sans-serif" font-size="56" font-weight="bold" fill="#0f172a">meses</text>
   <rect x="90" y="500" width="120" height="5" rx="2" fill="#0a66ff"/>
   <text x="90" y="556" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#5b6b83">João Paulo Marson</text>
   <text x="1110" y="556" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#93a3bd" text-anchor="end">jpmarson.com.br</text>

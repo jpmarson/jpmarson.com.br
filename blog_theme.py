@@ -83,7 +83,9 @@ CSS = """
   .body pre{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;
             overflow-x:auto;margin:18px 0}
   .body pre code{background:none;border:0;padding:0;font-size:.86rem;line-height:1.55}
-  .body img{max-width:100%;border-radius:12px;border:1px solid var(--border)}
+  .body img{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--border);background:var(--surface)}
+  .body figure{margin:24px 0;text-align:center}
+  .body figcaption{font-size:.84rem;color:var(--muted);margin-top:9px;line-height:1.45}
   .body hr{border:0;border-top:1px solid var(--border);margin:28px 0}
   .body a{text-decoration:underline;text-underline-offset:3px}
 

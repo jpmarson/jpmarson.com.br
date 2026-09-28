@@ -3,30 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Writing — João Paulo Marson</title>
-<meta name="description" content="Articles by João Paulo Marson on digital product management, engineering team leadership, vibe coding and technology in financial services.">
+<title>Lessons for anyone using — or about to use — Scrum — João Paulo Marson</title>
+<meta name="description" content="Fifteen practical lessons about Sprints, prioritization, ceremonies and scope — things I wish I had known before getting them wrong.">
 <meta name="author" content="João Paulo Marson">
-<link rel="canonical" href="https://jpmarson.com.br/blog/en/">
+<link rel="canonical" href="https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="JP Marson">
-<meta property="og:url" content="https://jpmarson.com.br/blog/en/">
-<meta property="og:title" content="Writing — João Paulo Marson">
-<meta property="og:description" content="Articles by João Paulo Marson on digital product management, engineering team leadership, vibe coding and technology in financial services.">
-<meta property="og:image" content="https://jpmarson.com.br/og-image.png">
+<meta property="og:url" content="https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<meta property="og:title" content="Lessons for anyone using — or about to use — Scrum — João Paulo Marson">
+<meta property="og:description" content="Fifteen practical lessons about Sprints, prioritization, ceremonies and scope — things I wish I had known before getting them wrong.">
+<meta property="og:image" content="https://jpmarson.com.br/covers/aprendizados-para-quem-usa-ou-quer-usar-scrum.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Writing — João Paulo Marson">
-<meta name="twitter:description" content="Articles by João Paulo Marson on digital product management, engineering team leadership, vibe coding and technology in financial services.">
-<meta name="twitter:image" content="https://jpmarson.com.br/og-image.png">
+<meta name="twitter:title" content="Lessons for anyone using — or about to use — Scrum — João Paulo Marson">
+<meta name="twitter:description" content="Fifteen practical lessons about Sprints, prioritization, ceremonies and scope — things I wish I had known before getting them wrong.">
+<meta name="twitter:image" content="https://jpmarson.com.br/covers/aprendizados-para-quem-usa-ou-quer-usar-scrum.png">
 <link rel="alternate" type="application/rss+xml" title="JP Marson" href="https://jpmarson.com.br/rss-en.xml">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a66ff'/><text x='50' y='68' font-size='48' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'>jp</text></svg>">
 
+<link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<link rel="alternate" hreflang="en" href="https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
+<link rel="alternate" hreflang="x-default" href="https://jpmarson.com.br/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Blog","name":"João Paulo Marson — Writing","url":"https://jpmarson.com.br/blog/en/",
+{"@context":"https://schema.org","@type":"BlogPosting",
+ "headline":"Lessons for anyone using — or about to use — Scrum",
+ "description":"Fifteen practical lessons about Sprints, prioritization, ceremonies and scope — things I wish I had known before getting them wrong.",
+ "image":"https://jpmarson.com.br/covers/aprendizados-para-quem-usa-ou-quer-usar-scrum.png",
+ "datePublished":"2022-12-22","dateModified":"2022-12-22",
  "inLanguage":"en",
- "author":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/"},
- "description":"Articles by João Paulo Marson on digital product management, engineering team leadership, vibe coding and technology in financial services."}
+ "wordCount":1054,
+ "keywords":["scrum","agile","leadership","product"],
+ "mainEntityOfPage":{"@type":"WebPage","@id":"https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/"},
+ "author":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/",
+   "sameAs":["https://www.linkedin.com/in/jpmarson","https://github.com/jpmarson"]},
+ "publisher":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/"},
+ "isPartOf":{"@type":"Blog","name":"João Paulo Marson","url":"https://jpmarson.com.br/blog/en/"}}
 </script>
 <style>
   :root{
@@ -154,62 +166,55 @@ document.documentElement.setAttribute("data-theme",t);})();
 </script>
 <div class="wrap">
 <header>
-    <a class="logo" href="../../">jp<span>.</span>marson</a>
+    <a class="logo" href="../../../">jp<span>.</span>marson</a>
     <div class="hdr-right">
-      <a class="navlink" href="../../">home</a>
-      <nav class="lang" aria-label="Idioma"><a href="/blog/"><button>PT</button></a><a href="#"><button class="active">EN</button></a></nav>
+      <a class="navlink" href="../../../">home</a>
+      <nav class="lang" aria-label="Idioma"><a href="/blog/aprendizados-para-quem-usa-ou-quer-usar-scrum/"><button>PT</button></a><a href="#"><button class="active">EN</button></a></nav>
       <button class="theme-btn" id="themeBtn" aria-label="Tema claro/escuro" title="Tema claro/escuro">&#9790;</button>
     </div>
   </header>
   <main>
-    <div class="page-tag">// notes on product, technology and teams</div>
-    <h1 class="page-title">Writing</h1>
-    <p class="page-sub">I write about digital product management, leading engineering teams, and what AI is changing in the way we build software. Short pieces, drawn from practice.</p>
-    <div class="filters"><button class="filter on" data-t="">all</button><button class="filter" data-t="backlog">backlog</button><button class="filter" data-t="prioritization">prioritization</button><button class="filter" data-t="product">product</button><button class="filter" data-t="tools">tools</button><button class="filter" data-t="scrum">scrum</button><button class="filter" data-t="agile">agile</button><button class="filter" data-t="leadership">leadership</button></div>
-    <div class="postlist" id="list"><a class="pcard" href="/blog/en/instrumento-para-priorizar-o-backlog/" data-tags="backlog|prioritization|product|tools">
-      <div class="pmeta"><span>Jan 18, 2023</span><span class="dot">&middot;</span><span>3 min read</span></div>
-      <h2>An instrument to help you prioritize the backlog</h2>
-      <p>The EOC instrument — Strategy, Objectives and Customers. A weighted questionnaire that makes the reasoning behind every prioritization decision explicit.</p>
-      <div class="ptags"><span class="ptag">backlog</span><span class="ptag">prioritization</span><span class="ptag">product</span><span class="ptag">tools</span></div>
-    </a><a class="pcard" href="/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/" data-tags="scrum|agile|leadership|product">
-      <div class="pmeta"><span>Dec 22, 2022</span><span class="dot">&middot;</span><span>5 min read</span></div>
-      <h2>Lessons for anyone using — or about to use — Scrum</h2>
-      <p>Fifteen practical lessons about Sprints, prioritization, ceremonies and scope — things I wish I had known before getting them wrong.</p>
-      <div class="ptags"><span class="ptag">scrum</span><span class="ptag">agile</span><span class="ptag">leadership</span><span class="ptag">product</span></div>
-    </a><a class="pcard" href="/blog/en/nao-existe-apenas-um-caminho-certo/" data-tags="agile|product|leadership">
-      <div class="pmeta"><span>Oct 6, 2022</span><span class="dot">&middot;</span><span>1 min read</span></div>
-      <h2>There is not just one right path!</h2>
-      <p>Be wary when someone tries to sell you an absolute truth about how to build product. There is no silver bullet.</p>
-      <div class="ptags"><span class="ptag">agile</span><span class="ptag">product</span><span class="ptag">leadership</span></div>
-    </a><a class="pcard" href="/blog/en/apague-cards-com-mais-de-6-meses/" data-tags="backlog|prioritization|product">
-      <div class="pmeta"><span>May 28, 2022</span><span class="dot">&middot;</span><span>1 min read</span></div>
-      <h2>Delete every card older than 6 months</h2>
-      <p>If a card has been sitting in your backlog for more than six months, it does not hurt enough. Delete it — you will feel free afterwards.</p>
-      <div class="ptags"><span class="ptag">backlog</span><span class="ptag">prioritization</span><span class="ptag">product</span></div>
-    </a><a class="pcard" href="/blog/en/rotina-de-priorizacao-do-backlog/" data-tags="backlog|prioritization|product|agile">
-      <div class="pmeta"><span>May 26, 2022</span><span class="dot">&middot;</span><span>7 min read</span></div>
-      <h2>The backlog prioritization routine</h2>
-      <p>Backlog prioritization is a routine and it never ends — it is like doing the dishes. Here is the cycle I use, step by step, with the tools for each stage.</p>
-      <div class="ptags"><span class="ptag">backlog</span><span class="ptag">prioritization</span><span class="ptag">product</span><span class="ptag">agile</span></div>
-    </a></div>
+    <a class="back" href="../">← all articles</a>
+    <article>
+      <h1>Lessons for anyone using — or about to use — Scrum</h1>
+      <div class="amet"><span>Dec 22, 2022</span><span class="dot">&middot;</span><span>5 min read</span><span class="ptag">scrum</span><span class="ptag">agile</span><span class="ptag">leadership</span><span class="ptag">product</span></div>
+      <p class="lede">Fifteen practical lessons about Sprints, prioritization, ceremonies and scope — things I wish I had known before getting them wrong.</p>
+      <div class="body"><figure><img src="https://static.wixstatic.com/media/b92f60_555fd61b7efa43f2981c227f41e1bbea~mv2.jpg/v1/fill/w_640,h_427,al_c,q_80,enc_avif,quality_auto/b92f60_555fd61b7efa43f2981c227f41e1bbea~mv2.jpg" alt="" loading="lazy"></figure>
+<p><strong>1.</strong> Do not expect 100% of a Sprint&#x27;s cards to be delivered — expect a rate between 85% and 110%. <strong>Why?</strong> Because life changes, things happen, vendors drop the ball, people get sick, technology fails. A rate like that already gives you excellent predictability.</p>
+<p><strong>2.</strong> Make the <strong>priority of the cards inside your Sprint</strong> explicit. If not everything can be delivered, let the most important things be delivered. <strong>Why?</strong> Same answer as above, with one tip: make sure everyone on the team understood it.</p>
+<p><strong>3.</strong> Scrum is not good for teams <strong>without a goal</strong>. <strong>Why?</strong> Because if your company has no clear objective of where it wants to go and how, the chance of someone changing scope mid-Sprint because &quot;something happened&quot; is enormous.</p>
+<p><strong>4.</strong> Scrum is not good for teams <strong>oriented toward quick hacks</strong>. <strong>Why?</strong> Because once that product hits production, a flood of bugs will show up every day, running over the Sprint plan, changing scope heavily and driving the team a little crazy. <strong>The bugs get fixed with more hacks, which generate more bugs, leading to madness without end.</strong></p>
+<p><strong>5.</strong> Try to bring a <strong>balanced</strong> scope into the Sprint across front end, back end and whatever other technology you have. <strong>Why?</strong> Because the development team will build a strategy to deliver as much of the Sprint as possible based on people&#x27;s knowledge and profile. Here it is important to reinforce the Sprint priority, so they do not deliver less important cards because of a given dev&#x27;s expertise instead of one from the top of the list.</p>
+<p><strong>6.</strong> A dream Sprint scope would be <strong>balanced</strong> across new features, improvements, bugs and technical debt. <strong>Why?</strong> So everything moves forward side by side: devs are happy seeing tech debt resolved, customers are happy with bugs fixed and new features. But the world is not that perfect, so you will have Sprints more focused on one type of work than another — and that is fine.</p>
+<p><strong>7.</strong> A piece of work may not fit into a single Sprint, and that is fine. I assume you already know the idea of splitting and refining work into the smallest possible size. Now imagine you have already discussed it with the team and it cannot be split further: the work really is big and will not fit into your 2-week Sprint. Agree with the team to <strong>deliver it across 2 sprints</strong>.</p>
+<p><strong>8.</strong> Do not extend the length of your Sprint to hit a specific goal or because of a <strong>crisis at your company</strong>. I have done this with my team in a few situations and every one of them turned out to be a mistake. Keep your Sprint length — Sprints are short precisely so you can assess whether you are on the right track, whether what was built was effective, learn what is new from the last few days, and adjust the work for the next round.</p>
+<p><strong>9.</strong> Keep your review and retrospective ceremonies consistent. <strong>Why?</strong> Only consistency takes you down the path of continuous improvement, whether of the product or of the team&#x27;s internal processes. Do not underestimate the power of that over the medium term. Without consistency, the ceremony loses <strong>credibility</strong>.</p>
+<p><strong>10.</strong> Do not want to run a <strong>daily</strong>? Want to run it only a few days a week, or only in writing? That is fine, as long as:</p>
+<ul><li>The team is delivering at the expected rate (item 1).</li><li>Team communication works, giving visibility of problems so people can ask for help as early as possible (sometimes there is still time to rescue a blocked item) and warn in advance the people who were expecting a feature that will not be delivered, so a negotiation is possible.</li></ul>
+<p><strong>11.</strong> Run the planning meeting with the team at a <strong>higher level</strong>: explain which problems will be solved, the impact on the customer&#x27;s life, and bring clear requirements. Whenever possible, walk some devs through what you plan to bring to the meeting beforehand, so the work gets refined. <strong>Why?</strong> Because your items will arrive refined and people will know why they are working on A or B.</p>
+<p><strong>12.</strong> After the planning meeting, <strong>give the development team a day or a few hours</strong> to:</p>
+<ul><li>Plan the implementation of each item (the technical solution).</li><li>Split the work into sub-tasks.</li><li>Assign owners for each sub-task.</li><li>Point the items, if they want to. Personally I do not see the point in story points — I believe more in the team&#x27;s commitment to deliver what it promised.</li><li>Decide what will and will not fit in the Sprint.</li></ul>
+<p><strong>13.</strong> Try to have the development team run the review meeting. <strong>Why?</strong> <strong>Because the delivery was theirs</strong> — it is only fair they present it. Help the team if they drift into <strong>jargon</strong>: explain that this is a meeting for anyone in the company interested in the topic, and they are not developers. Write down the suggestions raised during the meeting.</p>
+<p><strong>14.</strong> If you have to change Sprint scope by adding a new card, gather the team and negotiate. See whether it fits without removing anything, or decide together what comes out. <strong>Why?</strong> Because if everything went as planned, no extra work fits in the same timeframe — and you now need to <strong>communicate</strong> with whoever was waiting on the card that is leaving the Sprint.</p>
+<p><strong>15.</strong> Record bugs found during the Sprint as a <strong>sub-task</strong> of type bug on the item itself. <strong>Why?</strong> Sometimes we spot several small problems while a feature is being built, and logging them in the card&#x27;s comments is not great — it becomes hard to tell whether an error was already fixed, and hard to see how much rework is happening between dev and QA.</p>
+<h2>Trust me on these</h2>
+<ul><li>Scrum is good (one day I will write about why Scrum is good).</li><li>Leadership forgets about the technical debt that was agreed and will come back later asking &quot;why is this like that?&quot;.</li><li>Always, always design a feature the best way you can. Some technical debt takes its revenge after launch.</li></ul>
+<p>I want to keep this post alive and keep adding to it. If you feel something is missing, or you have a question, please send it over.</p></div>
+      <div class="engage" id="engage" data-slug="aprendizados-para-quem-usa-ou-quer-usar-scrum">
+      <button class="like" id="likeBtn"><span class="heart">&#9829;</span><span id="likeCount">0</span></button>
+      <span class="views" id="viewsBox" style="visibility:hidden">&#128065; <span id="viewCount">0</span> reads</span>
+      <div class="share">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://api.whatsapp.com/send?text=Lessons%20for%20anyone%20using%20—%20or%20about%20to%20use%20—%20Scrum%20https://jpmarson.com.br/blog/en/aprendizados-para-quem-usa-ou-quer-usar-scrum/" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+      <div class="nextprev"><a class="np" href="../nao-existe-apenas-um-caminho-certo/"><span class="k">Previous</span><strong>There is not just one right path!</strong></a><a class="np" href="../instrumento-para-priorizar-o-backlog/"><span class="k">Next</span><strong>An instrument to help you prioritize the backlog</strong></a></div>
+    </article>
   </main>
 <footer>
-    <span>&copy; 2026 <a href="../../">jpmarson.com.br</a></span>
-    <span><a href="../../rss-en.xml">RSS</a> &middot; <a href="https://www.linkedin.com/in/jpmarson" target="_blank" rel="noopener">LinkedIn</a></span>
+    <span>&copy; 2026 <a href="../../../">jpmarson.com.br</a></span>
+    <span><a href="../../../rss-en.xml">RSS</a> &middot; <a href="https://www.linkedin.com/in/jpmarson" target="_blank" rel="noopener">LinkedIn</a></span>
   </footer>
-<script>
-document.querySelectorAll(".filter").forEach(function(b){
-  b.addEventListener("click",function(){
-    document.querySelectorAll(".filter").forEach(function(x){x.classList.remove("on");});
-    b.classList.add("on");
-    var t=b.dataset.t;
-    document.querySelectorAll(".pcard").forEach(function(c){
-      var has=!t||(c.dataset.tags||"").split("|").indexOf(t)>=0;
-      c.style.display=has?"":"none";
-    });
-  });
-});
-</script>
 </div>
 <script>
 var themeBtn=document.getElementById("themeBtn");

@@ -3,38 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The manager who started building again (and what it changed) — João Paulo Marson</title>
-<meta name="description" content="I spent years managing people who write code without writing a line myself. Going back to building — with AI alongside — changed my productivity less than it changed the quality of my questions.">
+<title>An instrument to help you prioritize the backlog — João Paulo Marson</title>
+<meta name="description" content="The EOC instrument — Strategy, Objectives and Customers. A weighted questionnaire that makes the reasoning behind every prioritization decision explicit.">
 <meta name="author" content="João Paulo Marson">
-<link rel="canonical" href="https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/">
+<link rel="canonical" href="https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="JP Marson">
-<meta property="og:url" content="https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/">
-<meta property="og:title" content="The manager who started building again (and what it changed) — João Paulo Marson">
-<meta property="og:description" content="I spent years managing people who write code without writing a line myself. Going back to building — with AI alongside — changed my productivity less than it changed the quality of my questions.">
-<meta property="og:image" content="https://jpmarson.com.br/covers/gestor-que-voltou-a-codar.png">
+<meta property="og:url" content="https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/">
+<meta property="og:title" content="An instrument to help you prioritize the backlog — João Paulo Marson">
+<meta property="og:description" content="The EOC instrument — Strategy, Objectives and Customers. A weighted questionnaire that makes the reasoning behind every prioritization decision explicit.">
+<meta property="og:image" content="https://jpmarson.com.br/covers/instrumento-para-priorizar-o-backlog.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The manager who started building again (and what it changed) — João Paulo Marson">
-<meta name="twitter:description" content="I spent years managing people who write code without writing a line myself. Going back to building — with AI alongside — changed my productivity less than it changed the quality of my questions.">
-<meta name="twitter:image" content="https://jpmarson.com.br/covers/gestor-que-voltou-a-codar.png">
+<meta name="twitter:title" content="An instrument to help you prioritize the backlog — João Paulo Marson">
+<meta name="twitter:description" content="The EOC instrument — Strategy, Objectives and Customers. A weighted questionnaire that makes the reasoning behind every prioritization decision explicit.">
+<meta name="twitter:image" content="https://jpmarson.com.br/covers/instrumento-para-priorizar-o-backlog.png">
 <link rel="alternate" type="application/rss+xml" title="JP Marson" href="https://jpmarson.com.br/rss-en.xml">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a66ff'/><text x='50' y='68' font-size='48' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'>jp</text></svg>">
 
-<link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/">
-<link rel="alternate" hreflang="en" href="https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/">
-<link rel="alternate" hreflang="x-default" href="https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/">
+<link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/blog/instrumento-para-priorizar-o-backlog/">
+<link rel="alternate" hreflang="en" href="https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/">
+<link rel="alternate" hreflang="x-default" href="https://jpmarson.com.br/blog/instrumento-para-priorizar-o-backlog/">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting",
- "headline":"The manager who started building again (and what it changed)",
- "description":"I spent years managing people who write code without writing a line myself. Going back to building — with AI alongside — changed my productivity less than it changed the quality of my questions.",
- "image":"https://jpmarson.com.br/covers/gestor-que-voltou-a-codar.png",
- "datePublished":"2026-09-27","dateModified":"2026-09-27",
+ "headline":"An instrument to help you prioritize the backlog",
+ "description":"The EOC instrument — Strategy, Objectives and Customers. A weighted questionnaire that makes the reasoning behind every prioritization decision explicit.",
+ "image":"https://jpmarson.com.br/covers/instrumento-para-priorizar-o-backlog.png",
+ "datePublished":"2023-01-18","dateModified":"2023-01-18",
  "inLanguage":"en",
- "wordCount":643,
- "keywords":["vibe coding","product management","leadership"],
- "mainEntityOfPage":{"@type":"WebPage","@id":"https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/"},
+ "wordCount":653,
+ "keywords":["backlog","prioritization","product","tools"],
+ "mainEntityOfPage":{"@type":"WebPage","@id":"https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/"},
  "author":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/",
    "sameAs":["https://www.linkedin.com/in/jpmarson","https://github.com/jpmarson"]},
  "publisher":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/"},
@@ -122,7 +122,9 @@
   .body pre{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;
             overflow-x:auto;margin:18px 0}
   .body pre code{background:none;border:0;padding:0;font-size:.86rem;line-height:1.55}
-  .body img{max-width:100%;border-radius:12px;border:1px solid var(--border)}
+  .body img{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--border);background:var(--surface)}
+  .body figure{margin:24px 0;text-align:center}
+  .body figcaption{font-size:.84rem;color:var(--muted);margin-top:9px;line-height:1.45}
   .body hr{border:0;border-top:1px solid var(--border);margin:28px 0}
   .body a{text-decoration:underline;text-underline-offset:3px}
 
@@ -167,46 +169,56 @@ document.documentElement.setAttribute("data-theme",t);})();
     <a class="logo" href="../../../">jp<span>.</span>marson</a>
     <div class="hdr-right">
       <a class="navlink" href="../../../">home</a>
-      <nav class="lang" aria-label="Idioma"><a href="/blog/gestor-que-voltou-a-codar/"><button>PT</button></a><a href="#"><button class="active">EN</button></a></nav>
+      <nav class="lang" aria-label="Idioma"><a href="/blog/instrumento-para-priorizar-o-backlog/"><button>PT</button></a><a href="#"><button class="active">EN</button></a></nav>
       <button class="theme-btn" id="themeBtn" aria-label="Tema claro/escuro" title="Tema claro/escuro">&#9790;</button>
     </div>
   </header>
   <main>
     <a class="back" href="../">← all articles</a>
     <article>
-      <h1>The manager who started building again (and what it changed)</h1>
-      <div class="amet"><span>Sep 27, 2026</span><span class="dot">&middot;</span><span>3 min read</span><span class="ptag">vibe coding</span><span class="ptag">product management</span><span class="ptag">leadership</span></div>
-      <p class="lede">I spent years managing people who write code without writing a line myself. Going back to building — with AI alongside — changed my productivity less than it changed the quality of my questions.</p>
-      <div class="body"><p>I am not a developer. For more than fifteen years my job has been something else: understanding why we are building a thing, aligning business and technology, making sure what was promised actually lands. Writing code was something I had done in another life, and badly.</p>
-<p>That changed over the last few months. Not because I became an engineer, but because the barrier to entry dropped so far that not building stopped making sense.</p>
-<h2>What I built</h2>
-<p>Nothing glamorous. Internal tools that solved problems I felt myself:</p>
-<ul><li>A Python pipeline that watches a folder, detects when a portfolio report is updated, and fires a card into Teams with the traffic-light status of each group.</li><li>A project complexity scoring instrument — a weighted matrix with override rules — that became an HTML page the team now uses for allocation decisions.</li><li>A dashboard of priority projects that I open every Monday morning.</li></ul>
-<p>Each of those would otherwise have been a request to the engineering team. A request that would join a queue, compete with product delivery, and most likely never reach the top — correctly so, because product work comes before a manager&#x27;s internal tooling.</p>
-<h2>The part nobody talks about</h2>
-<p>The obvious gain is speed. The real gain is something else.</p>
-<p>When you build, even badly, you start to understand the <em>shape</em> of the problem. And the shape of the problem is exactly what gets lost in translation between the person asking and the person implementing.</p>
-<p>I used to ask &quot;can we add this to the report?&quot;. Today I know the right question is almost always a different one: where does this data come from, how often does it change, what happens when it is missing. Questions I did not know to ask because I had never run into them.</p>
-<blockquote><p>The skill that changed was not programming. It was knowing where complexity hides.</p></blockquote>
-<p>That changes the conversation with engineering. When a team says something is complex, I no longer treat it as a black box — nor, worse, with suspicion. I can ask where the complexity sits, and the answer becomes a shared decision instead of an estimate I either accept or push back on with no basis.</p>
-<h2>The risk I take seriously</h2>
-<p>There is a bad side to this, and it is real.</p>
-<p>A manager who builds quickly can start to believe building is easy. That is the trap: the prototype I put together in an evening has no tests, no error handling, does not scale, and has no one to maintain it. It solves my problem, for me, today. Calling that finished software would be dishonest — and turning that feeling into pressure on the team would be worse.</p>
-<p>I learned this the predictable way. One of my automations sat broken for days without anyone noticing, because I had never built any failure alerting. It worked silently and it failed silently. An engineer would have anticipated that in the first hour.</p>
-<p>So the line I hold is simple: what I build is management tooling, not product. The moment another person depends on it to do their job, it needs someone who knows what they are doing.</p>
-<h2>What I would tell another manager</h2>
-<p>Start with something only you use. A spreadsheet you rebuild every week, a report you assemble by hand, a calculation you repeat. Build the ugly version. Use it daily for a month.</p>
-<p>You will learn more about your own product in that month than in any architecture meeting — not because the meeting is useless, but because you now walk into it with context.</p>
-<p>And above all: keep treating the work of people who do this professionally with the respect it deserves. AI collapsed the distance between an idea and a prototype. It has collapsed very little of the distance between a prototype and a system in production — and that is where the craft lives.</p></div>
-      <div class="engage" id="engage" data-slug="gestor-que-voltou-a-codar">
+      <h1>An instrument to help you prioritize the backlog</h1>
+      <div class="amet"><span>Jan 18, 2023</span><span class="dot">&middot;</span><span>3 min read</span><span class="ptag">backlog</span><span class="ptag">prioritization</span><span class="ptag">product</span><span class="ptag">tools</span></div>
+      <p class="lede">The EOC instrument — Strategy, Objectives and Customers. A weighted questionnaire that makes the reasoning behind every prioritization decision explicit.</p>
+      <div class="body"><figure><img src="https://static.wixstatic.com/media/b92f60_d2c25afe33b04263985048006388211e~mv2.jpg/v1/fill/w_640,h_427,al_c,q_80,enc_avif,quality_auto/b92f60_d2c25afe33b04263985048006388211e~mv2.jpg" alt="" loading="lazy"></figure>
+<p><strong>I built this instrument with 4 goals:</strong></p>
+<ol><li>To find the right balance between strategy, business objectives and customer pain in decision making.</li><li>To avoid abstractions — to be as objective and easy to understand as possible.</li><li>To make the reasoning behind prioritization clear to anyone in the company who cares about it.</li><li>To help POs and PMs prioritize new features or improvements in a system or digital product already in use.</li></ol>
+<h2>The EOC instrument</h2>
+<p><a href="https://docs.google.com/spreadsheets/d/1ybEQn5jOlXdaWz1YmbQB6DEQKucwEkThg7TcT41yA44/edit?usp=sharing" target="_blank" rel="noopener">Open the spreadsheet here</a></p>
+<h3>Quick explanation</h3>
+<p>Yes, it looks like just a questionnaire in Google Sheets, but pay attention to the details.</p>
+<p><strong>First tab</strong></p>
+<p><em>The questions.</em> These should be the questions that represent customer problems and expectations, and the objectives of your team, company or product.</p>
+<p><em>Stakeholders.</em> Make it clear who has an interest in, or will be affected by, each question.</p>
+<p><em>The weights.</em> Decision-making processes are based on what matters most to someone. Some things matter more than others, and that is how people decide. The weights represent exactly that: what matters most right now in your company&#x27;s strategy.</p>
+<p><em>The indicators.</em> Try to find questions that move some indicator of your business, and make that link explicit — remember this is an instrument for all stakeholders.</p>
+<p><strong>Second tab — Questionnaire and prioritization</strong></p>
+<p>Here you register your work items with a subject, a title and a short description of the situation and characteristics of what you want to do. Answer only &quot;Yes&quot; or &quot;No&quot; to each question; every answer influences the item&#x27;s priority.</p>
+<p>At the end, note the components involved (for example: back end, front end, or both) and the effort — just a sense of magnitude that you can provide yourself based on experience.</p>
+<p>Every item on this tab helps you prioritize. The last two help you see the balance between components and effort across your work.</p>
+<p>Looked simple? It was meant to be.</p>
+<h3>How to roll this out with your team</h3>
+<p>First, gather the questions most relevant to your team. Talk to as many people as you can and then filter. Suggestion: aim for around 10 questions.</p>
+<p>Important things to consider while gathering the questions:</p>
+<p><strong>1. What are my team&#x27;s objectives?</strong> Examples: increase revenue; reduce cost; support a scale of X requests per day; reach X thousand customers by month Y; launch product Z by month A.</p>
+<p><strong>2. What matters most to my company right now, and where can my team help?</strong> Examples: reduce CAC; increase TPV; reduce churn.</p>
+<p><strong>3. How do I know what the customer wants?</strong> Examples: interviews; support complaints; app store reviews; benchmarking.</p>
+<p>Try to balance these questions across customer, company and technology — or whatever other area you serve.</p>
+<p>Defined the questions together with your stakeholders? The second step is to take that set of questions to the people who care (the team, your managers, leadership, marketing, support) and define the weight each one carries in the decision-making process.</p>
+<p>The third and final step is to fill in the second tab with your work items and rank them. Do this regularly to keep an up-to-date view. Tip: fill it in, rank it, and see whether it makes sense — you will most likely recalibrate the weights after the first ranked view.</p>
+<p>Remember: this instrument is there to help you. You will still always have to look across several areas and sources of information inside your company and decide what is best when asking the team for something new.</p>
+<hr>
+<p><strong>Note 1:</strong> feel free to copy, edit and share this instrument; I only ask that you credit the source.</p>
+<p><strong>Note 2:</strong> I nicknamed it EOC as a reminder of Strategy (<em>Estratégia</em>), Objectives and Customers.</p>
+<p><strong>Last note:</strong> I am already building another version of this instrument to prioritize technical debt and bugs.</p></div>
+      <div class="engage" id="engage" data-slug="instrumento-para-priorizar-o-backlog">
       <button class="like" id="likeBtn"><span class="heart">&#9829;</span><span id="likeCount">0</span></button>
       <span class="views" id="viewsBox" style="visibility:hidden">&#128065; <span id="viewCount">0</span> reads</span>
       <div class="share">
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://api.whatsapp.com/send?text=The%20manager%20who%20started%20building%20again%20(and%20what%20it%20changed)%20https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://api.whatsapp.com/send?text=An%20instrument%20to%20help%20you%20prioritize%20the%20backlog%20https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
-      
+      <div class="nextprev"><a class="np" href="../aprendizados-para-quem-usa-ou-quer-usar-scrum/"><span class="k">Previous</span><strong>Lessons for anyone using — or about to use — Scrum</strong></a></div>
     </article>
   </main>
 <footer>
