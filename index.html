@@ -67,6 +67,8 @@
   "seeks":{"@type":"Demand","name":"Project Management and Product leadership opportunities"}
 }
 </script>
+<link rel="alternate" type="application/rss+xml" title="JP Marson — Artigos" href="https://jpmarson.com.br/rss.xml">
+<link rel="alternate" type="application/rss+xml" title="JP Marson — Writing" href="https://jpmarson.com.br/rss-en.xml">
 <link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/">
 <link rel="alternate" hreflang="en" href="https://jpmarson.com.br/">
 <link rel="alternate" hreflang="es" href="https://jpmarson.com.br/">
@@ -194,6 +196,8 @@
   }
   .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
   .hdr-right{display:flex;align-items:center;gap:10px}
+  .navlink{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;padding:5px 10px;border-radius:8px;transition:.2s}
+  .navlink:hover{color:var(--accent);background:var(--accent-soft)}
   .btn.ghost{border:1px solid var(--border);color:var(--text);background:var(--surface)}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
   .btn.cv{border:1px solid var(--accent);color:var(--accent);background:var(--accent-soft)}
@@ -221,6 +225,7 @@
   <header>
     <a class="logo" href="#">jp<span>.</span>marson</a>
     <div class="hdr-right">
+      <a class="navlink" id="blogLink" href="blog/" data-i18n="navBlog"></a>
       <nav class="lang" aria-label="Idioma">
         <button data-lang="pt" class="active">PT</button>
         <button data-lang="en">EN</button>
@@ -370,6 +375,7 @@ const i18n = {
     c2p:"Priorização orientada a valor, métricas claras, melhoria contínua e governança pragmática: padronizar apenas o que escala.",
     skillsTitle:"Competências",
     chipReg:"Projetos Regulatórios",
+    navBlog:"artigos",
     eduTitle:"Formação",
     eduSub:"Base em administração, marketing e tecnologia — a combinação por trás da forma como conduzo produtos e projetos.",
     ed1:"Pós-graduação em Análise de Sistemas de TI",
@@ -407,6 +413,7 @@ const i18n = {
     c2p:"Value-driven prioritization, clear metrics, continuous improvement and pragmatic governance: standardize only what scales.",
     skillsTitle:"Skills",
     chipReg:"Regulatory Projects",
+    navBlog:"writing",
     eduTitle:"Education",
     eduSub:"A foundation in business, marketing and technology — the mix behind how I lead products and projects.",
     ed1:"Postgraduate Degree, IT Systems Analysis",
@@ -444,6 +451,7 @@ const i18n = {
     c2p:"Priorización orientada al valor, métricas claras, mejora continua y gobernanza pragmática: estandarizar solo lo que escala.",
     skillsTitle:"Competencias",
     chipReg:"Proyectos Regulatorios",
+    navBlog:"artículos",
     eduTitle:"Formación",
     eduSub:"Base en administración, marketing y tecnología — la combinación detrás de cómo conduzco productos y proyectos.",
     ed1:"Posgrado en Análisis de Sistemas de TI",
@@ -463,6 +471,8 @@ function setLang(l){
   document.documentElement.lang = l==="pt"?"pt-BR":l;
   document.querySelectorAll("[data-i18n]").forEach(el=>{ el.textContent = i18n[l][el.dataset.i18n] || ""; });
   document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));
+  /* blog em inglês para EN, em português para PT/ES */
+  document.getElementById("blogLink").href = (l==="en") ? "blog/en/" : "blog/";
   /* CV em português para PT/ES, em inglês para EN */
   document.getElementById("cvLink").href = (l==="en")
     ? "cv/joao-paulo-marson-resume-en.pdf"

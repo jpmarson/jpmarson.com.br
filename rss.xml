@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>João Paulo Marson — Artigos</title>
+  <link>https://jpmarson.com.br/blog/</link>
+  <atom:link href="https://jpmarson.com.br/rss.xml" rel="self" type="application/rss+xml"/>
+  <description>Artigos de João Paulo Marson sobre gestão de produtos digitais, liderança de times de desenvolvimento, vibe coding e tecnologia no mercado financeiro.</description>
+  <language>pt-BR</language>
+  <lastBuildDate>Mon, 28 Sep 2026 00:58:06 +0000</lastBuildDate>
+  <item>
+    <title>O gestor que voltou a codar (e o que isso mudou nas minhas decisões)</title>
+    <link>https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/</guid>
+    <description>Passei anos gerenciando quem escreve código sem escrever nenhuma linha. Voltar a construir — com IA do lado — mudou menos a minha produtividade e mais a qualidade das minhas perguntas.</description>
+    <pubDate>Sun, 27 Sep 2026 00:00:00 +0000</pubDate>
+    <category>vibe coding</category><category>gestão de produto</category><category>liderança</category>
+  </item>
+</channel>
+</rss>

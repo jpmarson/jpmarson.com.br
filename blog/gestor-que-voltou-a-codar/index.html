@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O gestor que voltou a codar (e o que isso mudou nas minhas decisões) — João Paulo Marson</title>
+<meta name="description" content="Passei anos gerenciando quem escreve código sem escrever nenhuma linha. Voltar a construir — com IA do lado — mudou menos a minha produtividade e mais a qualidade das minhas perguntas.">
+<meta name="author" content="João Paulo Marson">
+<link rel="canonical" href="https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="JP Marson">
+<meta property="og:url" content="https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/">
+<meta property="og:title" content="O gestor que voltou a codar (e o que isso mudou nas minhas decisões) — João Paulo Marson">
+<meta property="og:description" content="Passei anos gerenciando quem escreve código sem escrever nenhuma linha. Voltar a construir — com IA do lado — mudou menos a minha produtividade e mais a qualidade das minhas perguntas.">
+<meta property="og:image" content="https://jpmarson.com.br/covers/gestor-que-voltou-a-codar.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O gestor que voltou a codar (e o que isso mudou nas minhas decisões) — João Paulo Marson">
+<meta name="twitter:description" content="Passei anos gerenciando quem escreve código sem escrever nenhuma linha. Voltar a construir — com IA do lado — mudou menos a minha produtividade e mais a qualidade das minhas perguntas.">
+<meta name="twitter:image" content="https://jpmarson.com.br/covers/gestor-que-voltou-a-codar.png">
+<link rel="alternate" type="application/rss+xml" title="JP Marson" href="https://jpmarson.com.br/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a66ff'/><text x='50' y='68' font-size='48' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'>jp</text></svg>">
+
+<link rel="alternate" hreflang="pt-BR" href="https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/">
+<link rel="alternate" hreflang="en" href="https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/">
+<link rel="alternate" hreflang="x-default" href="https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting",
+ "headline":"O gestor que voltou a codar (e o que isso mudou nas minhas decisões)",
+ "description":"Passei anos gerenciando quem escreve código sem escrever nenhuma linha. Voltar a construir — com IA do lado — mudou menos a minha produtividade e mais a qualidade das minhas perguntas.",
+ "image":"https://jpmarson.com.br/covers/gestor-que-voltou-a-codar.png",
+ "datePublished":"2026-09-27","dateModified":"2026-09-27",
+ "inLanguage":"pt-BR",
+ "wordCount":638,
+ "keywords":["vibe coding","gestão de produto","liderança"],
+ "mainEntityOfPage":{"@type":"WebPage","@id":"https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/"},
+ "author":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/",
+   "sameAs":["https://www.linkedin.com/in/jpmarson","https://github.com/jpmarson"]},
+ "publisher":{"@type":"Person","name":"João Paulo Marson","url":"https://jpmarson.com.br/"},
+ "isPartOf":{"@type":"Blog","name":"João Paulo Marson","url":"https://jpmarson.com.br/blog/"}}
+</script>
+<style>
+  :root{
+    --bg:#fafbfd; --surface:#ffffff; --text:#0f172a; --muted:#5b6b83;
+    --accent:#0a66ff; --accent-soft:#e8f0ff; --border:#e4e9f2;
+    --tag-border:#cfe0ff; --shadow:rgba(10,102,255,.08);
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,sans-serif;
+  }
+  [data-theme="dark"]{
+    --bg:#0b1120; --surface:#121b30; --text:#e6ecf7; --muted:#93a3bd;
+    --accent:#4d8dff; --accent-soft:#14233f; --border:#1e2a44;
+    --tag-border:#264573; --shadow:rgba(0,0,0,.35);
+  }
+  [data-theme="dark"] .lang button.active{color:#0b1120}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:light}
+  html[data-theme="dark"]{color-scheme:dark}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+       -webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative}
+  header{display:flex;justify-content:space-between;align-items:center;padding:28px 0;gap:12px;flex-wrap:wrap}
+  .logo{font-family:var(--mono);font-weight:700;font-size:1.05rem;letter-spacing:-.5px;color:var(--text);text-decoration:none}
+  .logo span{color:var(--accent)}
+  .hdr-right{display:flex;align-items:center;gap:10px}
+  .navlink{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;padding:5px 10px;border-radius:8px;transition:.2s}
+  .navlink:hover{color:var(--accent);background:var(--accent-soft)}
+  .lang{display:flex;gap:4px;border:1px solid var(--border);border-radius:999px;padding:3px;background:var(--surface)}
+  .lang button{font-family:var(--mono);font-size:.72rem;border:0;background:transparent;color:var(--muted);
+               padding:5px 12px;border-radius:999px;cursor:pointer;transition:.2s}
+  .lang button.active{background:var(--accent);color:#fff}
+  .lang button:not(.active):hover{color:var(--accent)}
+  .theme-btn{width:34px;height:34px;border-radius:999px;border:1px solid var(--border);background:var(--surface);
+             color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+             font-size:1rem;transition:.2s}
+  .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+  main{padding:32px 0 24px}
+  a{color:var(--accent)}
+
+  /* índice */
+  .page-tag{font-family:var(--mono);font-size:.78rem;color:var(--accent);background:var(--accent-soft);
+            border:1px solid var(--tag-border);display:inline-block;padding:4px 12px;border-radius:999px;margin-bottom:20px}
+  h1.page-title{font-size:clamp(2rem,6vw,2.9rem);letter-spacing:-.03em;line-height:1.1;font-weight:800}
+  .page-sub{color:var(--muted);font-size:1.05rem;margin-top:12px;max-width:60ch}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 0}
+  .filter{font-family:var(--mono);font-size:.74rem;background:var(--surface);border:1px solid var(--border);
+          color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer;transition:.2s}
+  .filter:hover{border-color:var(--accent);color:var(--accent)}
+  .filter.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  [data-theme="dark"] .filter.on{color:#0b1120}
+  .postlist{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+  .pcard{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);
+         border-radius:14px;padding:22px;transition:.25s}
+  .pcard:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow)}
+  .pmeta{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .pmeta .dot{opacity:.5}
+  .pcard h2{font-size:1.22rem;letter-spacing:-.015em;margin:8px 0 6px;line-height:1.3}
+  .pcard p{color:var(--muted);font-size:.94rem}
+  .ptags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+  .ptag{font-family:var(--mono);font-size:.68rem;color:var(--accent);background:var(--accent-soft);
+        border:1px solid var(--tag-border);padding:3px 9px;border-radius:999px}
+  .empty{color:var(--muted);font-size:.95rem;padding:24px 0}
+
+  /* artigo */
+  .back{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:22px}
+  .back:hover{color:var(--accent)}
+  article h1{font-size:clamp(1.9rem,5.4vw,2.6rem);letter-spacing:-.03em;line-height:1.16;font-weight:800}
+  .amet{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .lede{font-size:1.1rem;color:var(--muted);margin-top:16px;padding-left:16px;border-left:3px solid var(--accent)}
+  .body{margin-top:32px;font-size:1.02rem}
+  .body h2{font-size:1.35rem;letter-spacing:-.015em;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+  .body h3{font-size:1.1rem;margin:26px 0 8px}
+  .body p{margin:14px 0}
+  .body ul,.body ol{margin:14px 0;padding-left:22px}
+  .body li{margin:6px 0}
+  .body blockquote{margin:20px 0;padding:14px 18px;background:var(--accent-soft);border-left:3px solid var(--accent);
+                   border-radius:0 10px 10px 0;color:var(--text)}
+  .body blockquote p{margin:0}
+  .body code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);border:1px solid var(--tag-border);
+             padding:1px 6px;border-radius:5px}
+  .body pre{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;
+            overflow-x:auto;margin:18px 0}
+  .body pre code{background:none;border:0;padding:0;font-size:.86rem;line-height:1.55}
+  .body img{max-width:100%;border-radius:12px;border:1px solid var(--border)}
+  .body hr{border:0;border-top:1px solid var(--border);margin:28px 0}
+  .body a{text-decoration:underline;text-underline-offset:3px}
+
+  /* engajamento */
+  .engage{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid var(--border)}
+  .like{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.84rem;cursor:pointer;
+        background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:10px 18px;border-radius:999px;transition:.2s}
+  .like:hover{border-color:var(--accent);color:var(--accent)}
+  .like.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  [data-theme="dark"] .like.on{color:#0b1120}
+  .like .heart{font-size:1rem;line-height:1}
+  .like.on .heart{animation:pop .32s ease}
+  @keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.45)}100%{transform:scale(1)}}
+  .views{font-family:var(--mono);font-size:.78rem;color:var(--muted);display:inline-flex;align-items:center;gap:7px}
+  .share{margin-left:auto;display:flex;gap:8px}
+  .share a{font-family:var(--mono);font-size:.76rem;text-decoration:none;color:var(--muted);border:1px solid var(--border);
+           background:var(--surface);padding:8px 14px;border-radius:999px;transition:.2s}
+  .share a:hover{border-color:var(--accent);color:var(--accent)}
+
+  .nextprev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  @media(max-width:600px){.nextprev{grid-template-columns:1fr}}
+  .np{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;padding:16px;transition:.2s}
+  .np:hover{border-color:var(--accent)}
+  .np .k{font-family:var(--mono);font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:.07em}
+  .np strong{display:block;font-size:.95rem;margin-top:5px;line-height:1.35;font-weight:600}
+
+  footer{border-top:1px solid var(--border);margin-top:64px;padding:22px 0 40px;display:flex;justify-content:space-between;
+         gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<script>
+(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}
+if(t!=="dark"&&t!=="light"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+document.documentElement.setAttribute("data-theme",t);})();
+</script>
+<div class="wrap">
+<header>
+    <a class="logo" href="../../">jp<span>.</span>marson</a>
+    <div class="hdr-right">
+      <a class="navlink" href="../../">início</a>
+      <nav class="lang" aria-label="Idioma"><a href="#"><button class="active">PT</button></a><a href="/blog/en/gestor-que-voltou-a-codar/"><button>EN</button></a></nav>
+      <button class="theme-btn" id="themeBtn" aria-label="Tema claro/escuro" title="Tema claro/escuro">&#9790;</button>
+    </div>
+  </header>
+  <main>
+    <a class="back" href="../">← todos os artigos</a>
+    <article>
+      <h1>O gestor que voltou a codar (e o que isso mudou nas minhas decisões)</h1>
+      <div class="amet"><span>27 de set de 2026</span><span class="dot">&middot;</span><span>3 min de leitura</span><span class="ptag">vibe coding</span><span class="ptag">gestão de produto</span><span class="ptag">liderança</span></div>
+      <p class="lede">Passei anos gerenciando quem escreve código sem escrever nenhuma linha. Voltar a construir — com IA do lado — mudou menos a minha produtividade e mais a qualidade das minhas perguntas.</p>
+      <div class="body"><p>Não sou desenvolvedor. Faz mais de quinze anos que meu trabalho é outro: entender por que estamos construindo algo, alinhar negócio e tecnologia, garantir que o que foi prometido chegue. Escrever código era coisa que eu tinha feito em outra vida, e mal.</p>
+<p>Nos últimos meses isso mudou. Não porque virei engenheiro, mas porque a barreira de entrada caiu tanto que deixou de fazer sentido não construir.</p>
+<h2>O que eu construí</h2>
+<p>Nada glamouroso. Ferramentas internas que resolviam dores que eu mesmo sentia:</p>
+<ul><li>Um pipeline em Python que observa uma pasta, detecta quando um relatório de portfólio é atualizado e dispara um cartão no Teams com a classificação de farol de cada grupo.</li><li>Um instrumento de classificação de complexidade de projetos — uma matriz de pontuação com regras de exceção — que virou uma página HTML que o time usa para decidir alocação.</li><li>Um painel dos projetos prioritários, que eu abro toda segunda-feira.</li></ul>
+<p>Cada uma dessas coisas teria virado um pedido para o time de engenharia. Um pedido que entraria numa fila, competiria com entregas de produto e provavelmente nunca chegaria ao topo — corretamente, porque produto vem antes de ferramenta interna de gestor.</p>
+<h2>A parte que ninguém comenta</h2>
+<p>O ganho óbvio é de velocidade. O ganho real é outro.</p>
+<p>Quando você constrói, mesmo mal, você passa a entender o formato do problema. E o formato do problema é exatamente o que se perde na tradução entre quem pede e quem implementa.</p>
+<p>Antes, eu perguntava &quot;dá para colocar isso no relatório?&quot;. Hoje eu sei que a pergunta certa quase sempre é outra: de onde vem esse dado, com que frequência ele muda, o que acontece quando ele falta. São perguntas que eu não sabia fazer porque nunca tinha esbarrado nelas.</p>
+<blockquote><p>A habilidade que mudou não foi programar. Foi saber onde a complexidade se esconde.</p></blockquote>
+<p>Isso muda a conversa com engenharia. Quando um time diz que algo é complexo, eu já não trato como caixa-preta nem — pior — desconfio. Consigo perguntar onde está a complexidade, e a resposta vira uma decisão conjunta em vez de uma estimativa que eu aceito ou contesto sem base.</p>
+<h2>O risco que eu levo a sério</h2>
+<p>Existe um lado ruim nisso, e ele é real.</p>
+<p>Um gestor que constrói rápido pode começar a achar que construir é fácil. É a armadilha: o protótipo que eu faço numa noite não tem testes, não tem tratamento de erro, não escala, não tem quem mantenha. Ele resolve o meu problema, para mim, hoje. Chamar isso de software pronto seria desonesto — e transformar essa sensação em pressão sobre o time seria pior ainda.</p>
+<p>Aprendi isso da maneira previsível: uma das minhas automações ficou quebrada por dias sem que ninguém percebesse, porque eu não tinha construído nenhum mecanismo de alerta de falha. Funcionava em silêncio e falhava em silêncio. Um engenheiro teria previsto isso na primeira hora.</p>
+<p>Então a régua que uso é simples: o que eu construo é ferramenta de gestão, não produto. No momento em que outra pessoa depende daquilo para trabalhar, aquilo precisa de alguém que saiba o que está fazendo.</p>
+<h2>O que eu recomendaria a outro gestor</h2>
+<p>Comece por algo que só você usa. Uma planilha que você refaz toda semana, um relatório que você monta na mão, um cálculo que você repete. Construa a versão feia. Use no seu dia a dia por um mês.</p>
+<p>Você vai aprender mais sobre o seu próprio produto nesse mês do que em qualquer reunião de arquitetura — não porque a reunião seja inútil, mas porque agora você chega nela com contexto.</p>
+<p>E, principalmente: continue tratando o trabalho de quem faz isso profissionalmente com o respeito que ele merece. A IA encurtou a distância entre a ideia e o protótipo. Ela não encurtou quase nada da distância entre o protótipo e o sistema em produção — e é aí que mora o ofício.</p></div>
+      <div class="engage" id="engage" data-slug="gestor-que-voltou-a-codar">
+      <button class="like" id="likeBtn"><span class="heart">&#9829;</span><span id="likeCount">0</span></button>
+      <span class="views" id="viewsBox" style="visibility:hidden">&#128065; <span id="viewCount">0</span> leituras</span>
+      <div class="share">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://api.whatsapp.com/send?text=O%20gestor%20que%20voltou%20a%20codar%20(e%20o%20que%20isso%20mudou%20nas%20minhas%20decisões)%20https://jpmarson.com.br/blog/gestor-que-voltou-a-codar/" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+      
+    </article>
+  </main>
+<footer>
+    <span>&copy; 2026 <a href="../../">jpmarson.com.br</a></span>
+    <span><a href="../../rss.xml">RSS</a> &middot; <a href="https://www.linkedin.com/in/jpmarson" target="_blank" rel="noopener">LinkedIn</a></span>
+  </footer>
+</div>
+<script>
+var themeBtn=document.getElementById("themeBtn");
+var mq=window.matchMedia("(prefers-color-scheme: dark)");
+function applyTheme(t,persist){document.documentElement.setAttribute("data-theme",t);
+  themeBtn.textContent=t==="dark"?"\u2600":"\u263e";
+  if(persist){try{localStorage.setItem("theme",t);}catch(e){}}}
+themeBtn.addEventListener("click",function(){
+  var cur=document.documentElement.getAttribute("data-theme");
+  applyTheme(cur==="dark"?"light":"dark",true);});
+mq.addEventListener("change",function(e){var s=null;try{s=localStorage.getItem("theme");}catch(err){}
+  if(!s)applyTheme(e.matches?"dark":"light",false);});
+applyTheme(document.documentElement.getAttribute("data-theme")||"light",false);
+
+var API_BASE = "";  /* ex: "https://api.jpmarson.com.br" */
+(function(){
+  var box=document.getElementById("engage");
+  if(!box) return;
+  if(!API_BASE){ box.style.display="none"; return; }
+  var slug=box.dataset.slug;
+  var likeBtn=document.getElementById("likeBtn");
+  var likeN=document.getElementById("likeCount");
+  var viewN=document.getElementById("viewCount");
+  var viewsBox=document.getElementById("viewsBox");
+  function fmt(n){ return new Intl.NumberFormat(document.documentElement.lang||"pt-BR").format(n); }
+  /* registra a leitura (o backend deduplica por sessão) */
+  fetch(API_BASE+"/api/view/"+encodeURIComponent(slug),{method:"POST"})
+    .then(function(r){return r.json();})
+    .then(function(d){ if(d&&typeof d.views==="number"){ viewN.textContent=fmt(d.views); viewsBox.style.visibility="visible"; } })
+    .catch(function(){ viewsBox.style.display="none"; });
+  /* estado do like */
+  var liked=false;
+  try{ liked=localStorage.getItem("liked:"+slug)==="1"; }catch(e){}
+  if(liked) likeBtn.classList.add("on");
+  fetch(API_BASE+"/api/likes/"+encodeURIComponent(slug))
+    .then(function(r){return r.json();})
+    .then(function(d){ if(d&&typeof d.likes==="number") likeN.textContent=fmt(d.likes); })
+    .catch(function(){});
+  likeBtn.addEventListener("click",function(){
+    var on=likeBtn.classList.toggle("on");
+    try{ localStorage.setItem("liked:"+slug, on?"1":"0"); }catch(e){}
+    var cur=parseInt((likeN.textContent||"0").replace(/\D/g,""),10)||0;
+    likeN.textContent=fmt(Math.max(0,cur+(on?1:-1)));
+    fetch(API_BASE+"/api/likes/"+encodeURIComponent(slug),{method:on?"POST":"DELETE"})
+      .then(function(r){return r.json();})
+      .then(function(d){ if(d&&typeof d.likes==="number") likeN.textContent=fmt(d.likes); })
+      .catch(function(){});
+  });
+})();
+</script>
+</body>
+</html>

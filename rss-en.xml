@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>João Paulo Marson — Writing</title>
+  <link>https://jpmarson.com.br/blog/en/</link>
+  <atom:link href="https://jpmarson.com.br/rss-en.xml" rel="self" type="application/rss+xml"/>
+  <description>Articles by João Paulo Marson on digital product management, engineering team leadership, vibe coding and technology in financial services.</description>
+  <language>en</language>
+  <lastBuildDate>Mon, 28 Sep 2026 00:58:06 +0000</lastBuildDate>
+  <item>
+    <title>The manager who started building again (and what it changed)</title>
+    <link>https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/</link>
+    <guid isPermaLink="true">https://jpmarson.com.br/blog/en/gestor-que-voltou-a-codar/</guid>
+    <description>I spent years managing people who write code without writing a line myself. Going back to building — with AI alongside — changed my productivity less than it changed the quality of my questions.</description>
+    <pubDate>Sun, 27 Sep 2026 00:00:00 +0000</pubDate>
+    <category>vibe coding</category><category>product management</category><category>leadership</category>
+  </item>
+</channel>
+</rss>
