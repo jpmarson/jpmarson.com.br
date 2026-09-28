@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>João Paulo Marson — Writing</title>
+  <title>João Paulo Marson — Posts</title>
   <link>https://jpmarson.com.br/blog/en/</link>
   <atom:link href="https://jpmarson.com.br/rss-en.xml" rel="self" type="application/rss+xml"/>
   <description>Articles by João Paulo Marson on digital product management, engineering team leadership, vibe coding and technology in financial services.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 28 Sep 2026 02:35:12 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 02:47:14 +0000</lastBuildDate>
   <item>
     <title>An instrument to help you prioritize the backlog</title>
     <link>https://jpmarson.com.br/blog/en/instrumento-para-priorizar-o-backlog/</link>
