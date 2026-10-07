@@ -726,6 +726,54 @@ def build_sitemap(posts):
 
 # --------------------------------------------------------------------------
 
+HOME_START = "<!-- LATEST_POSTS:START"
+HOME_END = "<!-- LATEST_POSTS:END -->"
+
+
+def update_home(posts, n=3):
+    """Atualiza o bloco 'últimos posts' da home (index.html), entre os marcadores.
+    Gera as versões PT e EN de cada card; a home mostra a do idioma ativo.
+    Sem datas de propósito: o blog tem posts antigos e a home não deve parecer parada."""
+    path = os.path.join(ROOT, "index.html")
+    if not os.path.exists(path):
+        return False
+    page_html = open(path, encoding="utf-8").read()
+    a, b = page_html.find(HOME_START), page_html.find(HOME_END)
+    if a == -1 or b == -1 or b < a:
+        print("  (aviso) marcadores LATEST_POSTS não encontrados em index.html")
+        return False
+    a_end = page_html.index("-->", a) + 3
+
+    def both(pt_text, en_text):
+        return '<span data-l="pt">%s</span><span data-l="en">%s</span>' % (
+            html.escape(pt_text), html.escape(en_text))
+
+    cards = []
+    for p in posts[:n]:
+        pt = p.get("pt") or p.get("en")
+        en = p.get("en") or pt
+        href_pt = "blog/%s/" % p["slug"] if p.get("pt") else "blog/en/%s/" % p["slug"]
+        href_en = "blog/en/%s/" % p["slug"] if p.get("en") else href_pt
+        tags_pt = " · ".join(pt["tags"][:2]) or "blog"
+        tags_en = " · ".join(en["tags"][:2]) or "blog"
+        cards.append(
+            '      <a class="post" href="%s" data-href-en="%s">\n'
+            '        <div class="cov">%s</div>\n'
+            '        <div class="b"><h4>%s</h4><p>%s</p>'
+            '<div class="m">%s</div></div>\n'
+            '      </a>' % (
+                href_pt, href_en, both(tags_pt, tags_en),
+                both(pt["title"], en["title"]), both(pt["summary"], en["summary"]),
+                both("%d min de leitura →" % pt["minutes"], "%d min read →" % en["minutes"])))
+
+    new_html = page_html[:a_end] + "\n" + "\n".join(cards) + "\n" + page_html[b:]
+    if new_html != page_html:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(new_html)
+        return True
+    return False
+
+
 def svg_to_png(svg_rel, png_rel):
     """Converte a capa para PNG (redes sociais não renderizam SVG).
     Usa rsvg-convert, ImageMagick ou Inkscape — o que estiver instalado."""
@@ -807,6 +855,8 @@ def main():
     written.append(write("rss.xml", build_rss(posts, "pt")))
     written.append(write("rss-en.xml", build_rss(posts, "en")))
     written.append(write("sitemap.xml", build_sitemap(posts)))
+    if update_home(posts):
+        written.append("index.html (últimos posts)")
 
     print("%d post(s) · %d arquivo(s) gerado(s)" % (len(posts), len(written)))
     for w in written:

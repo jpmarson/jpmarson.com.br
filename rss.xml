@@ -6,15 +6,7 @@
   <atom:link href="https://jpmarson.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Artigos de João Paulo Marson sobre gestão de produtos digitais, liderança de times de desenvolvimento, vibe coding e tecnologia no mercado financeiro.</description>
   <language>pt-BR</language>
-  <lastBuildDate>Wed, 07 Oct 2026 00:00:00 +0000</lastBuildDate>
-  <item>
-    <title>Post de teste do painel</title>
-    <link>https://jpmarson.com.br/blog/post-de-teste-do-painel/</link>
-    <guid isPermaLink="true">https://jpmarson.com.br/blog/post-de-teste-do-painel/</guid>
-    <description>Post temporário para validar o fluxo de publicação. Será despublicado em seguida.</description>
-    <pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate>
-    
-  </item>
+  <lastBuildDate>Wed, 18 Jan 2023 00:00:00 +0000</lastBuildDate>
   <item>
     <title>Um instrumento para te ajudar a priorizar o backlog</title>
     <link>https://jpmarson.com.br/blog/instrumento-para-priorizar-o-backlog/</link>

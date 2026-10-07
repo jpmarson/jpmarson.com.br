@@ -21,7 +21,9 @@ CSS = """
   body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
        -webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
   /* mesma largura da home (jpmarson.com.br) */
-  .wrap{max-width:840px;margin:0 auto;padding:0 24px;position:relative}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative}
+  /* texto do artigo numa coluna confortável de leitura, alinhada à esquerda */
+  article{max-width:760px}
   header{display:flex;justify-content:space-between;align-items:center;padding:28px 0;gap:12px;flex-wrap:wrap}
   .logo{font-family:var(--mono);font-weight:700;font-size:1.05rem;letter-spacing:-.5px;color:var(--text);text-decoration:none}
   .logo span{color:var(--accent)}
