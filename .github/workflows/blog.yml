@@ -1,0 +1,69 @@
+# Publica o blog a partir do Supabase.
+#
+# Disparado por:
+#   - botão "Publicar" no /admin/ (via Edge Function "publish" do Supabase)
+#   - manualmente: GitHub → Actions → "Publicar blog" → Run workflow
+#   - mudanças no gerador (build.py, blog_theme.py)
+#
+# O que faz: busca os posts publicados no Supabase, regenera blog/, covers/,
+# RSS e sitemap, faz commit só se algo mudou e pede um novo build do GitHub Pages.
+
+name: Publicar blog
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - build.py
+      - blog_theme.py
+      - blog-config.json
+      - .github/workflows/blog.yml
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publicar-blog
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ferramentas para as capas (SVG → PNG)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core > /dev/null
+
+      - name: Gerar blog a partir do Supabase
+        run: python3 build.py
+
+      - name: Commit das páginas geradas
+        id: commit
+        run: |
+          git config user.name  "jpmarson-blog[bot]"
+          git config user.email "jpmarson@gmail.com"
+          git add -A blog covers posts rss.xml rss-en.xml sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Nada mudou no blog."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Blog: publica alterações do Supabase"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Atualizar GitHub Pages
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Commits feitos pelo GITHUB_TOKEN podem não disparar o Pages sozinhos;
+          # pedir o build explicitamente garante a publicação.
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || \
+            echo "Aviso: não foi possível solicitar o build do Pages (ele pode já estar em andamento)."
