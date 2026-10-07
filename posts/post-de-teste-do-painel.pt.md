@@ -3,7 +3,7 @@ title: Post de teste do painel
 date: 2026-10-07
 tags: 
 summary: Post temporário para validar o fluxo de publicação. Será despublicado em seguida.
-draft: false
+draft: true
 ---
 
 Este post existe só para testar o painel.
