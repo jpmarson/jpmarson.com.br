@@ -1,0 +1,7 @@
+{
+  "_comment": "Valores públicos do blog. A chave publishable foi feita para ficar no navegador; a segurança vem das políticas RLS do banco. Nunca coloque aqui a chave secreta (sb_secret_...).",
+  "supabase_url": "https://tjfoutvadbghmurblhcc.supabase.co",
+  "supabase_key": "sb_publishable_-KXzxjD6_tqVgzxhwJ650g_wF6bLA0E",
+  "owner_email": "jpmarson@gmail.com",
+  "github_repo": "jpmarson/jpmarson.com.br"
+}

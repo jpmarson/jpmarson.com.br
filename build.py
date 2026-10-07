@@ -4,9 +4,13 @@
 Gerador do blog de jpmarson.com.br — sem dependências externas (só stdlib).
 
 Uso:
-    python3 build.py
+    python3 build.py              # lê os posts publicados no Supabase (blog-config.json)
+    python3 build.py --markdown   # lê posts/*.md (modo offline)
 
-Lê os arquivos de posts/ e gera:
+Fonte oficial dos posts: tabela public.posts no Supabase, editada em /admin/.
+A pasta posts/ passa a ser uma cópia de segurança gerada a cada build.
+
+Gera:
     blog/index.html            índice em português
     blog/en/index.html         índice em inglês
     blog/<slug>/index.html     post em português
@@ -28,7 +32,7 @@ Formato do post — posts/<slug>.pt.md e posts/<slug>.en.md:
     Corpo em Markdown.
 """
 
-import os, re, html, shutil, subprocess, xml.sax.saxutils as sx
+import os, re, sys, json, html, shutil, subprocess, urllib.request, xml.sax.saxutils as sx
 from datetime import datetime, timezone
 
 import blog_theme as T
@@ -187,8 +191,26 @@ def parse_post(path):
     return meta
 
 
-def load_posts():
-    """{slug: {'pt': meta, 'en': meta}} — ordenado da data mais recente para a mais antiga."""
+def make_meta(title, summary, tags, date, body):
+    """Mesmo formato produzido por parse_post, a partir de campos soltos."""
+    body = body or ""
+    words = len(re.findall(r'\w+', body))
+    return {"title": title or "", "summary": summary or "", "tags": list(tags or []),
+            "date": date or "1970-01-01", "draft": False, "body_md": body,
+            "words": words, "minutes": max(1, round(words / 200))}
+
+
+def _sort(posts_by_slug):
+    items = [p for p in posts_by_slug.values() if "pt" in p or "en" in p]
+    for p in items:
+        any_meta = p.get("pt") or p.get("en")
+        p["date"] = any_meta.get("date", "1970-01-01")
+    items.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
+    return items
+
+
+def load_posts_markdown():
+    """Lê posts/*.md (modo antigo / cópia de segurança)."""
     posts = {}
     if not os.path.isdir(POSTS_DIR):
         return []
@@ -201,12 +223,121 @@ def load_posts():
         if meta["draft"]:
             continue
         posts.setdefault(slug, {"slug": slug})[lang] = meta
-    items = [p for p in posts.values() if "pt" in p or "en" in p]
-    for p in items:
-        any_meta = p.get("pt") or p.get("en")
-        p["date"] = any_meta.get("date", "1970-01-01")
-    items.sort(key=lambda p: p["date"], reverse=True)
-    return items
+    return _sort(posts)
+
+
+def rows_to_posts(rows):
+    """Converte linhas da tabela public.posts (Supabase) no formato interno."""
+    posts = {}
+    for r in rows:
+        if r.get("status") != "published":
+            continue
+        slug = r["slug"]
+        p = {"slug": slug}
+        if (r.get("title_pt") or "").strip() and (r.get("body_pt") or "").strip():
+            p["pt"] = make_meta(r["title_pt"], r.get("summary_pt"), r.get("tags_pt"),
+                                r.get("published_at"), r["body_pt"])
+        if (r.get("title_en") or "").strip() and (r.get("body_en") or "").strip():
+            p["en"] = make_meta(r["title_en"], r.get("summary_en"), r.get("tags_en"),
+                                r.get("published_at"), r["body_en"])
+        if "pt" in p or "en" in p:
+            posts[slug] = p
+    return _sort(posts)
+
+
+def load_config():
+    """blog-config.json (valores públicos) com sobreposição por variáveis de ambiente."""
+    cfg = {}
+    path = os.path.join(ROOT, "blog-config.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            cfg = json.load(f)
+    cfg["supabase_url"] = os.environ.get("SUPABASE_URL") or cfg.get("supabase_url", "")
+    cfg["supabase_key"] = os.environ.get("SUPABASE_KEY") or cfg.get("supabase_key", "")
+    return cfg
+
+
+def load_posts_supabase(cfg):
+    """Busca os posts publicados na API REST do Supabase (chave pública + RLS)."""
+    url = cfg["supabase_url"].rstrip("/") + (
+        "/rest/v1/posts?select=*&status=eq.published&order=published_at.desc,slug.asc")
+    key = cfg["supabase_key"]
+    headers = {"apikey": key, "Accept": "application/json"}
+    if not key.startswith("sb_"):          # chave anon antiga (JWT)
+        headers["Authorization"] = "Bearer " + key
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        rows = json.load(resp)
+    return rows_to_posts(rows)
+
+
+# --------------------------------------------------------------------------
+# Cópia de segurança em Markdown e limpeza de páginas de posts despublicados
+# --------------------------------------------------------------------------
+
+def _front_matter(meta):
+    return ("---\ntitle: %s\ndate: %s\ntags: %s\nsummary: %s\ndraft: false\n---\n\n%s\n"
+            % (meta["title"], meta["date"], ", ".join(meta["tags"]),
+               meta["summary"].replace("\n", " "), meta["body_md"].rstrip()))
+
+
+def backup_markdown(posts):
+    """Grava posts/<slug>.<lang>.md com o conteúdo do banco (histórico no git).
+    Posts que saíram do ar não são apagados: ficam marcados como draft."""
+    os.makedirs(POSTS_DIR, exist_ok=True)
+    live = set()
+    changed = []
+    for p in posts:
+        for lang in LANGS:
+            if not p.get(lang):
+                continue
+            fn = "%s.%s.md" % (p["slug"], lang)
+            live.add(fn)
+            path = os.path.join(POSTS_DIR, fn)
+            content = _front_matter(p[lang])
+            old = open(path, encoding="utf-8").read() if os.path.exists(path) else None
+            if old != content:
+                with open(path, "w", encoding="utf-8") as f:
+                    f.write(content)
+                changed.append("posts/" + fn)
+    for fn in sorted(os.listdir(POSTS_DIR)):
+        if not re.match(r'^.+\.(pt|en)\.md$', fn) or fn in live:
+            continue
+        path = os.path.join(POSTS_DIR, fn)
+        raw = open(path, encoding="utf-8").read()
+        new = re.sub(r'(?m)^draft:\s*\S+\s*$', 'draft: true', raw, count=1)
+        if new == raw and not re.search(r'(?m)^draft:', raw):
+            new = raw.replace("---\n", "---\ndraft: true\n", 1)
+        if new != raw:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(new)
+            changed.append("posts/%s (marcado como draft)" % fn)
+    return changed
+
+
+def prune_generated(posts):
+    """Remove páginas e capas GERADAS de posts que não estão mais publicados.
+    Só toca em blog/<slug>/, blog/en/<slug>/ e covers/<slug>.* — nunca em posts/."""
+    keep = {p["slug"] for p in posts}
+    removed = []
+    for base in ("blog", os.path.join("blog", "en")):
+        d = os.path.join(ROOT, base)
+        if not os.path.isdir(d):
+            continue
+        for name in os.listdir(d):
+            full = os.path.join(d, name)
+            if (os.path.isdir(full) and name not in keep and name != "en"
+                    and os.path.exists(os.path.join(full, "index.html"))):
+                shutil.rmtree(full)
+                removed.append("%s/%s/" % (base, name))
+    cdir = os.path.join(ROOT, "covers")
+    if os.path.isdir(cdir):
+        for name in os.listdir(cdir):
+            slug, ext = os.path.splitext(name)
+            if ext in (".svg", ".png") and slug not in keep:
+                os.remove(os.path.join(cdir, name))
+                removed.append("covers/" + name)
+    return removed
 
 
 def fmt_date(iso, lang):
@@ -474,6 +605,18 @@ def build_post(p, lang, prev, nxt):
                 og_image=cover, extra_head=alts)
 
 
+def latest_date(posts):
+    return max((p.get("date", "1970-01-01") for p in posts), default=datetime.now().strftime("%Y-%m-%d"))
+
+
+def _rfc822(iso):
+    try:
+        d = datetime.strptime(iso, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    except ValueError:
+        d = datetime.now(timezone.utc)
+    return d.strftime("%a, %d %b %Y 00:00:00 +0000")
+
+
 def _json_str(s):
     return '"%s"' % s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
 
@@ -550,11 +693,12 @@ def build_rss(posts, lang):
 </rss>
 """ % (AUTHOR, s["blog_title"], index_url(lang, True), SITE,
        "rss.xml" if lang == "pt" else "rss-en.xml", sx.escape(s["meta_desc"]), s["code"],
-       datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000"), "\n".join(items))
+       _rfc822(latest_date(posts)), "\n".join(items))
 
 
 def build_sitemap(posts):
-    today = datetime.now().strftime("%Y-%m-%d")
+    # data estável (a do post mais recente) para não gerar commits sem mudança real
+    today = latest_date(posts)
     urls = ["""  <url><loc>%s/</loc><lastmod>%s</lastmod><changefreq>monthly</changefreq><priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="%s/"/>
     <xhtml:link rel="alternate" hreflang="en" href="%s/"/>
@@ -610,8 +754,34 @@ def write(path, content):
 
 
 def main():
-    posts = load_posts()
+    args = sys.argv[1:]
+    cfg = load_config()
+
+    if "--markdown" in args:
+        source = "markdown"
+        posts = load_posts_markdown()
+    elif "--json" in args:                       # testes: linhas exportadas do banco
+        source = "json"
+        with open(args[args.index("--json") + 1], encoding="utf-8") as f:
+            posts = rows_to_posts(json.load(f))
+    elif cfg["supabase_url"] and cfg["supabase_key"]:
+        source = "supabase"
+        posts = load_posts_supabase(cfg)
+    else:
+        source = "markdown"
+        posts = load_posts_markdown()
+
+    print("fonte dos posts: %s" % source)
     written = []
+
+    if source != "markdown":
+        # Proteção: se o banco devolver zero posts por engano, não derruba o blog.
+        if not posts and "--allow-empty" not in args:
+            sys.exit("ERRO: nenhum post publicado retornado por '%s'. Nada foi alterado. "
+                     "Use --allow-empty se isso for intencional." % source)
+        for r in prune_generated(posts):
+            print("  removido (despublicado): " + r)
+        written += backup_markdown(posts)
 
     for lang in LANGS:
         written.append(write("blog/index.html" if lang == "pt" else "blog/en/index.html",
@@ -624,9 +794,15 @@ def main():
             if p.get(lang):
                 sub = "blog/%s/index.html" % p["slug"] if lang == "pt" else "blog/en/%s/index.html" % p["slug"]
                 written.append(write(sub, build_post(p, lang, prev, nxt)))
-        written.append(write("covers/%s.svg" % p["slug"], build_cover(p)))
-        if svg_to_png("covers/%s.svg" % p["slug"], "covers/%s.png" % p["slug"]):
-            written.append("covers/%s.png" % p["slug"])
+        # capa: só regenera o PNG se o SVG mudou (PNG embute data e geraria commits à toa)
+        svg_rel, png_rel = "covers/%s.svg" % p["slug"], "covers/%s.png" % p["slug"]
+        svg = build_cover(p)
+        svg_path = os.path.join(ROOT, svg_rel)
+        old_svg = open(svg_path, encoding="utf-8").read() if os.path.exists(svg_path) else None
+        if old_svg != svg or not os.path.exists(os.path.join(ROOT, png_rel)):
+            written.append(write(svg_rel, svg))
+            if svg_to_png(svg_rel, png_rel):
+                written.append(png_rel)
 
     written.append(write("rss.xml", build_rss(posts, "pt")))
     written.append(write("rss-en.xml", build_rss(posts, "en")))
