@@ -56,7 +56,8 @@ Deno.serve(async (req) => {
   }
 
   // 2. Dispara o workflow no GitHub
-  const token = Deno.env.get("GH_DISPATCH_TOKEN");
+  // tolera espaços, quebras de linha e aspas coladas junto com o token
+  const token = (Deno.env.get("GH_DISPATCH_TOKEN") ?? "").trim().replace(/^["']|["']$/g, "").trim();
   if (!token) {
     return json(500, { error: "Segredo GH_DISPATCH_TOKEN não configurado no Supabase" }, origin);
   }
@@ -76,8 +77,15 @@ Deno.serve(async (req) => {
 
   if (res.status !== 204) {
     const detail = await res.text();
-    console.error("GitHub dispatch falhou", res.status, detail);
-    return json(502, { error: "GitHub recusou o disparo", status: res.status, detail }, origin);
+    // diagnóstico sem expor o token: só formato e tamanho
+    console.error("GitHub dispatch falhou", res.status, detail,
+      "| token: prefixo", token.slice(0, 11), "tamanho", token.length);
+    const why = res.status === 401
+      ? "token do GitHub inválido ou expirado (refaça o segredo GH_DISPATCH_TOKEN no Supabase)"
+      : res.status === 403 || res.status === 404
+      ? "o token do GitHub não tem a permissão 'Actions: Read and write' neste repositório"
+      : "GitHub recusou o disparo (HTTP " + res.status + ")";
+    return json(502, { error: why, status: res.status }, origin);
   }
 
   return json(200, {
