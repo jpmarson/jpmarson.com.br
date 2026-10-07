@@ -161,7 +161,7 @@ document.documentElement.setAttribute("data-theme",t);})();
   .profile .role{font-size:.86rem;color:var(--accent);font-weight:600}
   .profile .meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:8px;display:flex;flex-direction:column;gap:3px}
   .badge-float{position:absolute;right:-14px;top:30px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:9px 13px;
-               box-shadow:0 10px 26px var(--shadow);font-size:.76rem;line-height:1.3;max-width:150px}
+               box-shadow:0 10px 26px var(--shadow);font-size:.76rem;line-height:1.3;max-width:150px;z-index:2}
   .badge-float b{display:block;font-family:var(--mono);color:var(--accent);font-size:1.1rem}
   @media(max-width:900px){.profile{max-width:320px}.badge-float{right:12px}}
 
@@ -170,7 +170,7 @@ document.documentElement.setAttribute("data-theme",t);})();
   @media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr)}}
   .metric{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 16px}
   .metric b{display:block;font-family:var(--mono);font-size:1.5rem;color:var(--accent);letter-spacing:-.03em;line-height:1.1}
-  .metric span{display:block;font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.35}
+  .metric > span{display:block;font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.35}
 
   /* faixa de empresas */
   .trust{padding:22px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
@@ -230,6 +230,9 @@ document.documentElement.setAttribute("data-theme",t);})();
   .proj.big p{font-size:.98rem}
   .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
   .stack span{font-family:var(--mono);font-size:.7rem;color:var(--accent);background:var(--accent-soft);border:1px solid var(--tag-border);padding:3px 9px;border-radius:999px}
+  .built{list-style:none;margin-top:22px;display:grid;gap:10px}
+  .built li{font-size:.9rem;padding-left:24px;position:relative;line-height:1.45}
+  .built li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:4px;background:var(--accent-soft);border:2px solid var(--accent)}
   .flow{margin-top:auto;padding-top:24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
   .flow span{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 10px}
   .flow i{font-style:normal;color:var(--accent)}
@@ -255,7 +258,7 @@ document.documentElement.setAttribute("data-theme",t);})();
   .ti.p::before{border-color:var(--soft)}
   .ti .y{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
   .ti b{display:block;font-size:.98rem;margin-top:1px}
-  .ti span{font-size:.86rem;color:var(--accent);font-weight:600}
+  .ti > span{font-size:.86rem;color:var(--accent);font-weight:600}
   .side-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}
   .side-box h4{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
   .side-box h4 + ul{margin-bottom:18px}
@@ -441,6 +444,12 @@ document.documentElement.setAttribute("data-theme",t);})();
         <h4>Jurik</h4>
         <p data-i18n="j_p"></p>
         <div class="stack"><span>Astro</span><span>n8n</span><span>MySQL</span><span>Claude API</span><span>Stripe + Pix</span><span>Grafana</span></div>
+        <ul class="built">
+          <li data-i18n="j_b1"></li>
+          <li data-i18n="j_b2"></li>
+          <li data-i18n="j_b3"></li>
+          <li data-i18n="j_b4"></li>
+        </ul>
         <div class="flow" aria-hidden="true">
           <span data-i18n="j_f1"></span><i>→</i><span data-i18n="j_f2"></span><i>→</i><span data-i18n="j_f3"></span><i>→</i><span data-i18n="j_f4"></span>
         </div>
@@ -601,6 +610,10 @@ const i18n = {
     j_lbl:"projeto pessoal · produto completo",
     j_p:"Plataforma de due diligence imobiliária concebida e construída do zero: discovery, modelo de negócio, arquitetura, integrações com bases públicas e privadas, pagamentos e laudos gerados com IA.",
     j_f1:"pedido", j_f2:"consultas", j_f3:"análise com IA", j_f4:"laudo PDF",
+    j_b1:"Esteira de pedidos com máquina de estados e trilha de auditoria de cada mudança.",
+    j_b2:"Integrações com bases judiciais e de dados cadastrais para montar o dossiê do imóvel.",
+    j_b3:"Pagamento por cartão e Pix, com confirmação automática e entrega do laudo por link e PDF.",
+    j_b4:"Painéis de operação com funil de pedidos, custos por etapa e vendas por modelo de laudo.",
     eoc_lbl:"ferramenta aberta", eoc_h:"Instrumento EOC", eoc_p:"Questionário com pesos que torna a priorização explícita: Estratégia, Objetivos e Clientes.",
     tool_lbl:"ferramenta de gestão",
     t1_h:"Farol automático de portfólio", t1_p:"Pipeline em Python que lê relatórios de portfólio e publica o status de cada frente no Teams, sem trabalho manual.",
@@ -643,6 +656,10 @@ const i18n = {
     j_lbl:"personal project · end-to-end product",
     j_p:"Real estate due diligence platform designed and built from scratch: discovery, business model, architecture, integrations with public and private data sources, payments and AI-generated reports.",
     j_f1:"order", j_f2:"lookups", j_f3:"AI analysis", j_f4:"PDF report",
+    j_b1:"Order pipeline built on a state machine, with an audit trail for every change.",
+    j_b2:"Integrations with court records and registry data sources to assemble the property dossier.",
+    j_b3:"Card and Pix payments with automatic confirmation, delivering the report as a link and PDF.",
+    j_b4:"Operations dashboards tracking the order funnel, cost per stage and sales by report tier.",
     eoc_lbl:"open tool", eoc_h:"EOC Instrument", eoc_p:"A weighted questionnaire that makes prioritization explicit: Strategy, Objectives and Customers.",
     tool_lbl:"management tool",
     t1_h:"Automated portfolio status", t1_p:"A Python pipeline that reads portfolio reports and posts each front's status to Teams — no manual work.",
@@ -685,6 +702,10 @@ const i18n = {
     j_lbl:"proyecto personal · producto completo",
     j_p:"Plataforma de due diligence inmobiliaria concebida y construida desde cero: discovery, modelo de negocio, arquitectura, integraciones con bases públicas y privadas, pagos e informes generados con IA.",
     j_f1:"pedido", j_f2:"consultas", j_f3:"análisis con IA", j_f4:"informe PDF",
+    j_b1:"Flujo de pedidos con máquina de estados y registro de auditoría de cada cambio.",
+    j_b2:"Integraciones con bases judiciales y de datos registrales para armar el dossier del inmueble.",
+    j_b3:"Pago con tarjeta y Pix, con confirmación automática y entrega del informe por enlace y PDF.",
+    j_b4:"Paneles de operación con embudo de pedidos, costos por etapa y ventas por modelo de informe.",
     eoc_lbl:"herramienta abierta", eoc_h:"Instrumento EOC", eoc_p:"Cuestionario con pesos que hace explícita la priorización: Estrategia, Objetivos y Clientes.",
     tool_lbl:"herramienta de gestión",
     t1_h:"Semáforo automático de portafolio", t1_p:"Pipeline en Python que lee reportes de portafolio y publica el estado de cada frente en Teams, sin trabajo manual.",
