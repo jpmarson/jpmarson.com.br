@@ -397,6 +397,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <div class="result"><b>24h→0</b><span data-i18n="r3"></span></div>
         <div class="result"><b>+20%</b><span data-i18n="r4"></span></div>
         <div class="result"><b>-1.000</b><span data-i18n="r5"></span></div>
+        <div class="result"><b>3.8→4.9</b><span data-i18n="r6"></span></div>
       </div>
     </article>
 
@@ -585,7 +586,7 @@ const i18n = {
     lead:"Sou <strong>João Paulo Marson</strong>. Há 16 anos lidero projetos e produtos digitais no mercado financeiro — de cartões a adquirência — e <strong>construo com as próprias mãos</strong> as ferramentas que proponho.",
     cta_cases:"Ver resultados →", cred2:"5+ anos em fintech",
     badge:"custo de onboarding", prof_role:"Liderança em projetos e produtos", prof_loc:"São Paulo, Brasil", prof_dom:"Fintech · Pagamentos · Adquirência",
-    m1:"anos em projetos e produtos digitais", m2:"custo de onboarding no novücard", m3:"taxa de fraude no cartão", m4:"resposta do underwriting", m5:"migração completa de processadora", months:"meses",
+    m1:"anos em projetos e produtos digitais", m2:"custo de onboarding no novücard", m3:"fraude no onboarding", m4:"resposta do underwriting", m5:"migração completa de processadora", months:"meses",
     trust:"onde já entreguei",
     cases_h:"Entregas com resultado",
     cases_sd:"Entregas que mostram como eu trabalho — e o que acontece com os números quando produto, negócio e engenharia andam juntos.",
@@ -595,7 +596,7 @@ const i18n = {
     f_ctx:"Cartão de crédito digital de uma fintech em crescimento, com operação 100% remota.",
     f_ch:"Reduzir o custo de aquisição e a fraude e acelerar a concessão de crédito — sem frear o crescimento.",
     f_did:"Conectei dados de produção, negócio e engenharia num ciclo único de priorização, conduzi o fórum de prioridades entre as áreas e dei visibilidade das entregas para toda a empresa.",
-    res_t:"Resultado", r1:"custo de onboarding", r2:"taxa de fraude", r3:"resposta do underwriting", r4:"ativação do cartão físico", r5:"chamados por mês no atendimento",
+    res_t:"Resultado", r1:"custo de onboarding", r2:"fraude no onboarding", r3:"resposta do underwriting", r4:"ativação do cartão físico", r5:"chamados por mês no atendimento", r6:"nota do app nas lojas",
     c1_h:"Migração completa de processadora", c1_p:"Troca da empresa processadora do cartão, coordenando produto, engenharia, operações e fornecedores.", c1_out:"<b>6 meses</b> do início ao fim",
     c2_k:"Fiserv · atual", c2_h:"Gestão de projetos cross-team no Brasil", c2_p:"Estruturação da capacidade de gestão de projetos em três frentes: produtos core, Acquiring as a Service e projetos regulatórios e de plataforma.", c2_out:"<b>3 frentes</b> sob uma governança única de portfólio",
     c3_h:"Transformação ágil em times de produto", c3_p:"Implantação de Scrum em dois times, trilha de capacitação (Scrum, Kanban, MVP, LeSS) e KPIs de fluxo para dar previsibilidade.", c3_out:"<b>2 times</b> operando em Scrum com métricas de fluxo",
@@ -630,7 +631,7 @@ const i18n = {
     lead:"I'm <strong>João Paulo Marson</strong>. For 16 years I've led projects and digital products in financial services — from credit cards to merchant acquiring — and I <strong>build with my own hands</strong> the tools I propose.",
     cta_cases:"See results →", cred2:"5+ years in fintech",
     badge:"onboarding cost", prof_role:"Project & product leadership", prof_loc:"São Paulo, Brazil", prof_dom:"Fintech · Payments · Acquiring",
-    m1:"years in projects and digital products", m2:"onboarding cost at novücard", m3:"card fraud rate", m4:"underwriting response time", m5:"full card processor migration", months:"months",
+    m1:"years in projects and digital products", m2:"onboarding cost at novücard", m3:"onboarding fraud", m4:"underwriting response time", m5:"full card processor migration", months:"months",
     trust:"where I've delivered",
     cases_h:"Deliveries with results",
     cases_sd:"Deliveries that show how I work — and what happens to the numbers when product, business and engineering move together.",
@@ -640,7 +641,7 @@ const i18n = {
     f_ctx:"Digital credit card at a fast-growing fintech, fully remote operation.",
     f_ch:"Cut acquisition cost and fraud and speed up credit decisions — without slowing growth.",
     f_did:"Connected production data, business and engineering into a single prioritization cycle, ran the cross-functional priority forum, and gave the whole company visibility of delivery.",
-    res_t:"Outcome", r1:"onboarding cost", r2:"fraud rate", r3:"underwriting response", r4:"physical card activation", r5:"support contacts per month",
+    res_t:"Outcome", r1:"onboarding cost", r2:"onboarding fraud", r3:"underwriting response", r4:"physical card activation", r5:"support contacts per month", r6:"app store rating",
     c1_h:"Full card processor migration", c1_p:"Replaced the card processor, coordinating product, engineering, operations and vendors.", c1_out:"<b>6 months</b> start to finish",
     c2_k:"Fiserv · current", c2_h:"Cross-team project management in Brazil", c2_p:"Building the project management capability across three fronts: core products, Acquiring as a Service, and regulatory & platform initiatives.", c2_out:"<b>3 fronts</b> under a single portfolio governance",
     c3_h:"Agile transformation in product teams", c3_p:"Rolled out Scrum in two teams, a training track (Scrum, Kanban, MVP, LeSS) and flow KPIs for predictability.", c3_out:"<b>2 teams</b> running Scrum with flow metrics",
@@ -675,7 +676,7 @@ const i18n = {
     lead:"Soy <strong>João Paulo Marson</strong>. Hace 16 años lidero proyectos y productos digitales en el mercado financiero — de tarjetas a adquirencia — y <strong>construyo con mis propias manos</strong> las herramientas que propongo.",
     cta_cases:"Ver resultados →", cred2:"5+ años en fintech",
     badge:"costo de onboarding", prof_role:"Liderazgo en proyectos y productos", prof_loc:"São Paulo, Brasil", prof_dom:"Fintech · Pagos · Adquirencia",
-    m1:"años en proyectos y productos digitales", m2:"costo de onboarding en novücard", m3:"tasa de fraude de la tarjeta", m4:"respuesta del underwriting", m5:"migración completa de procesadora", months:"meses",
+    m1:"años en proyectos y productos digitales", m2:"costo de onboarding en novücard", m3:"fraude en el onboarding", m4:"respuesta del underwriting", m5:"migración completa de procesadora", months:"meses",
     trust:"donde ya entregué",
     cases_h:"Entregas con resultado",
     cases_sd:"Entregas que muestran cómo trabajo — y qué pasa con los números cuando producto, negocio e ingeniería avanzan juntos.",
@@ -685,7 +686,7 @@ const i18n = {
     f_ctx:"Tarjeta de crédito digital de una fintech en crecimiento, con operación 100% remota.",
     f_ch:"Reducir el costo de adquisición y el fraude y acelerar la concesión de crédito — sin frenar el crecimiento.",
     f_did:"Conecté datos de producción, negocio e ingeniería en un ciclo único de priorización, conduje el foro de prioridades entre áreas y di visibilidad de las entregas a toda la empresa.",
-    res_t:"Resultado", r1:"costo de onboarding", r2:"tasa de fraude", r3:"respuesta del underwriting", r4:"activación de la tarjeta física", r5:"llamadas por mes al soporte",
+    res_t:"Resultado", r1:"costo de onboarding", r2:"fraude en el onboarding", r3:"respuesta del underwriting", r4:"activación de la tarjeta física", r5:"llamadas por mes al soporte", r6:"nota de la app en las tiendas",
     c1_h:"Migración completa de procesadora", c1_p:"Cambio de la procesadora de la tarjeta, coordinando producto, ingeniería, operaciones y proveedores.", c1_out:"<b>6 meses</b> de inicio a fin",
     c2_k:"Fiserv · actual", c2_h:"Gestión de proyectos cross-team en Brasil", c2_p:"Estructuración de la capacidad de gestión de proyectos en tres frentes: productos core, Acquiring as a Service y proyectos regulatorios y de plataforma.", c2_out:"<b>3 frentes</b> bajo una gobernanza única de portafolio",
     c3_h:"Transformación ágil en equipos de producto", c3_p:"Implantación de Scrum en dos equipos, ruta de capacitación (Scrum, Kanban, MVP, LeSS) y KPIs de flujo para dar previsibilidad.", c3_out:"<b>2 equipos</b> operando en Scrum con métricas de flujo",
