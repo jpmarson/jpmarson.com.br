@@ -46,6 +46,7 @@ blog/ covers/           páginas e capas geradas — não editar à mão
 rss.xml rss-en.xml      feeds gerados
 sitemap.xml             gerado
 cv/                     currículos em PDF (PT/EN)
+tools/build_cv.py       gera os currículos (conteúdo editável no próprio arquivo)
 ```
 
 ## Segurança
@@ -64,3 +65,14 @@ python3 build.py --markdown   # lê da cópia em posts/ (sem internet)
 ```
 
 Se o banco devolver zero posts, o build para sem alterar nada (proteção contra derrubar o blog por engano).
+
+## Currículos
+
+O texto dos CVs fica em `tools/build_cv.py`. Para atualizar:
+
+```bash
+pip install weasyprint
+python3 tools/build_cv.py
+```
+
+Depois de publicar um CV novo, troque o `?v=` dos links em `index.html` para o navegador e a Cloudflare buscarem a versão nova.
