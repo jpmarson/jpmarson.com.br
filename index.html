@@ -138,10 +138,6 @@ document.documentElement.setAttribute("data-theme",t);})();
     -webkit-mask-image:radial-gradient(ellipse 70% 70% at 30% 20%,#000 0%,transparent 70%)}
   .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;position:relative}
   @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
-  .status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.75rem;color:var(--muted);
-          background:var(--surface);border:1px solid var(--border);padding:6px 13px;border-radius:999px;margin-bottom:22px;max-width:100%}
-  .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px color-mix(in srgb,var(--good) 18%,transparent);animation:pulse 2s infinite}
-  @keyframes pulse{50%{opacity:.45}}
   h1.hl{font-size:clamp(2.2rem,5.4vw,3.5rem);line-height:1.06;letter-spacing:-.035em;font-weight:800}
   h1.hl em{font-style:normal;color:var(--accent)}
   .lead{font-size:clamp(1.02rem,2vw,1.15rem);color:var(--muted);margin-top:20px;max-width:58ch}
@@ -332,7 +328,6 @@ document.documentElement.setAttribute("data-theme",t);})();
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="status"><span class="dot"></span><span data-i18n="status"></span></div>
         <h1 class="hl" data-i18n-html="h1"></h1>
         <p class="lead" data-i18n-html="lead"></p>
         <div class="cta-row">
@@ -586,14 +581,13 @@ document.documentElement.setAttribute("data-theme",t);})();
 const i18n = {
   pt: {
     nav_cases:"Cases", nav_proj:"Projetos", nav_ideas:"Ideias", nav_path:"Trajetória", cta_talk:"Fale comigo",
-    status:"aberto a conversas sobre produtos digitais e liderança de desenvolvimento de software",
     h1:"Transformo portfólios complexos em <em>entregas previsíveis.</em>",
     lead:"Sou <strong>João Paulo Marson</strong>. Há 16 anos lidero projetos e produtos digitais no mercado financeiro — de cartões a adquirência — e <strong>construo com as próprias mãos</strong> as ferramentas que proponho.",
     cta_cases:"Ver resultados →", cred2:"5+ anos em fintech",
     badge:"custo de onboarding", prof_role:"Liderança em projetos e produtos", prof_loc:"São Paulo, Brasil", prof_dom:"Fintech · Pagamentos · Adquirência",
     m1:"anos em projetos e produtos digitais", m2:"custo de onboarding no novücard", m3:"taxa de fraude no cartão", m4:"resposta do underwriting", m5:"migração completa de processadora", months:"meses",
     trust:"onde já entreguei",
-    cases_h:"Resultados, não só cargos.",
+    cases_h:"Entregas com resultado",
     cases_sd:"Entregas que mostram como eu trabalho — e o que acontece com os números quando produto, negócio e engenharia andam juntos.",
     feat_pill:"case em destaque",
     feat_h:"Cartão de crédito novücard: menos custo, menos fraude e crédito na hora",
@@ -632,14 +626,13 @@ const i18n = {
   },
   en: {
     nav_cases:"Cases", nav_proj:"Projects", nav_ideas:"Ideas", nav_path:"Career", cta_talk:"Get in touch",
-    status:"open to conversations about digital products and software development leadership",
     h1:"I turn complex portfolios into <em>predictable delivery.</em>",
     lead:"I'm <strong>João Paulo Marson</strong>. For 16 years I've led projects and digital products in financial services — from credit cards to merchant acquiring — and I <strong>build with my own hands</strong> the tools I propose.",
     cta_cases:"See results →", cred2:"5+ years in fintech",
     badge:"onboarding cost", prof_role:"Project & product leadership", prof_loc:"São Paulo, Brazil", prof_dom:"Fintech · Payments · Acquiring",
     m1:"years in projects and digital products", m2:"onboarding cost at novücard", m3:"card fraud rate", m4:"underwriting response time", m5:"full card processor migration", months:"months",
     trust:"where I've delivered",
-    cases_h:"Results, not just job titles.",
+    cases_h:"Deliveries with results",
     cases_sd:"Deliveries that show how I work — and what happens to the numbers when product, business and engineering move together.",
     feat_pill:"featured case",
     feat_h:"novücard credit card: lower cost, less fraud and instant credit",
@@ -678,14 +671,13 @@ const i18n = {
   },
   es: {
     nav_cases:"Casos", nav_proj:"Proyectos", nav_ideas:"Ideas", nav_path:"Trayectoria", cta_talk:"Contáctame",
-    status:"abierto a conversar sobre productos digitales y liderazgo de desarrollo de software",
     h1:"Transformo portafolios complejos en <em>entregas predecibles.</em>",
     lead:"Soy <strong>João Paulo Marson</strong>. Hace 16 años lidero proyectos y productos digitales en el mercado financiero — de tarjetas a adquirencia — y <strong>construyo con mis propias manos</strong> las herramientas que propongo.",
     cta_cases:"Ver resultados →", cred2:"5+ años en fintech",
     badge:"costo de onboarding", prof_role:"Liderazgo en proyectos y productos", prof_loc:"São Paulo, Brasil", prof_dom:"Fintech · Pagos · Adquirencia",
     m1:"años en proyectos y productos digitales", m2:"costo de onboarding en novücard", m3:"tasa de fraude de la tarjeta", m4:"respuesta del underwriting", m5:"migración completa de procesadora", months:"meses",
     trust:"donde ya entregué",
-    cases_h:"Resultados, no solo cargos.",
+    cases_h:"Entregas con resultado",
     cases_sd:"Entregas que muestran cómo trabajo — y qué pasa con los números cuando producto, negocio e ingeniería avanzan juntos.",
     feat_pill:"caso destacado",
     feat_h:"Tarjeta de crédito novücard: menos costo, menos fraude y crédito al instante",
