@@ -418,6 +418,7 @@ def page(lang, title, desc, canonical, body, depth, jsonld="", og_image=None, ex
 <link rel="alternate" type="application/rss+xml" title="JP Marson" href="%(site)s/%(feed)s">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%%230a66ff'/><text x='50' y='68' font-size='48' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'>jp</text></svg>">
 %(extra_head)s%(jsonld)s
+<script src="/analytics.js" defer></script>
 <style>%(css)s</style>
 </head>
 <body>
@@ -523,12 +524,15 @@ def build_post(p, lang, prev, nxt):
     url = post_url(slug, lang, True)
     cover = "%s/covers/%s.png" % (SITE, slug)
 
-    share_txt = "%s %s" % (meta.get("title", ""), url)
+    # links compartilhados levam a origem marcada (aparece no Google Analytics)
+    from urllib.parse import quote as _q
+    url_li = url + "?utm_source=linkedin&utm_medium=compartilhamento&utm_campaign=blog"
+    url_wa = url + "?utm_source=whatsapp&utm_medium=compartilhamento&utm_campaign=blog"
     share = """<div class="share">
         <a href="https://www.linkedin.com/sharing/share-offsite/?url=%s" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://api.whatsapp.com/send?text=%s" target="_blank" rel="noopener">WhatsApp</a>
-      </div>""" % (html.escape(url, quote=True),
-                   html.escape(share_txt.replace(" ", "%20"), quote=True))
+      </div>""" % (html.escape(_q(url_li, safe=""), quote=True),
+                   html.escape(_q("%s %s" % (meta.get("title", ""), url_wa), safe=""), quote=True))
 
     engage = """<div class="engage" id="engage" data-slug="%(slug)s">
       <button class="like" id="likeBtn"><span class="heart">&#9829;</span><span id="likeCount">0</span></button>

@@ -33,6 +33,7 @@ a { color: #0a66ff; text-decoration: none; }
 .headline { font-size: 11pt; color: #0a66ff; font-weight: bold; margin-top: 3pt; }
 .contact { font-family: 'DejaVu Sans Mono', monospace; font-size: 7.8pt; color: #5b6b83; margin-top: 7pt; }
 .contact span { margin-right: 9pt; }
+.contact a { color: #5b6b83; }
 .rule { height: 2.5pt; background: #0a66ff; margin: 9pt 0 11pt; border-radius: 2pt; }
 h2 { font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1.1pt; color: #0a66ff;
      margin: 13pt 0 6pt; padding-bottom: 2.5pt; border-bottom: 0.6pt solid #d7dfec; }
@@ -84,7 +85,7 @@ def render(d, out):
     <body data-pg="%(pg)s">
     <div class="name">João Paulo Marson</div>
     <div class="headline">%(headline)s</div>
-    <div class="contact"><span>%(loc)s</span><span>jp@jpmarson.com.br</span><span>jpmarson.com.br</span><span>linkedin.com/in/jpmarson</span></div>
+    <div class="contact"><span>%(loc)s</span><span><a href="mailto:jp@jpmarson.com.br">jp@jpmarson.com.br</a></span><span><a href="https://jpmarson.com.br/?utm_source=cv&amp;utm_medium=pdf&amp;utm_campaign=%(campaign)s">jpmarson.com.br</a></span><span><a href="https://www.linkedin.com/in/jpmarson">linkedin.com/in/jpmarson</a></span></div>
     <div class="rule"></div>
     <h2>%(t_summary)s</h2>
     <p class="summary">%(summary)s</p>
@@ -97,7 +98,7 @@ def render(d, out):
       <td><h2>%(t_lang)s</h2>%(langs)s</td>
     </tr></table>
     </body></html>""" % dict(
-        lang=d["lang"], css=CSS, pg=d["pg"], headline=esc(d["headline"]), loc=esc(d["loc"]),
+        lang=d["lang"], css=CSS, pg=d["pg"], campaign=d["campaign"], headline=esc(d["headline"]), loc=esc(d["loc"]),
         t_summary=d["t_summary"], summary=esc(d["summary"]), metrics=metrics,
         t_exp=d["t_exp"], jobs=jobs, t_early=d["t_early"], early=early,
         t_skills=d["t_skills"], skills=skills, t_edu=d["t_edu"], edu=edu, t_lang=d["t_lang"], langs=langs)
@@ -106,7 +107,7 @@ def render(d, out):
 
 
 PT = dict(
-    lang="pt-BR", pg="página", loc="São Paulo, Brasil",
+    lang="pt-BR", pg="página", loc="São Paulo, Brasil", campaign="cv-pt",
     headline="Gestão de Projetos & Produtos Digitais · Fintech e Meios de Pagamento",
     t_summary="Resumo", t_exp="Experiência Profissional", t_early="Trajetória Anterior",
     t_skills="Competências", t_edu="Formação", t_lang="Idiomas",
@@ -178,7 +179,7 @@ PT = dict(
 )
 
 EN = dict(
-    lang="en", pg="page", loc="São Paulo, Brazil",
+    lang="en", pg="page", loc="São Paulo, Brazil", campaign="cv-en",
     headline="Project & Digital Product Management · Fintech and Payments",
     t_summary="Summary", t_exp="Professional Experience", t_early="Earlier Career",
     t_skills="Skills", t_edu="Education", t_lang="Languages",
