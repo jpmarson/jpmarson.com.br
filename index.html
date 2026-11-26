@@ -147,8 +147,15 @@ document.documentElement.setAttribute("data-theme",t);})();
   .tagline em{font-style:normal;color:var(--accent)}
   @media(max-width:900px){.hero-grid{grid-template-columns:1fr 160px;gap:24px;align-items:start}
     .hero-photo figcaption{display:none}}
-  @media(max-width:560px){.hero-grid{grid-template-columns:1fr 96px;gap:14px}
-    .hero-photo img{border-width:3px}}
+  .hero-photo{grid-column:2;grid-row:1}
+  .hero-txt{grid-column:1;grid-row:1}
+  /* celular: foto à direita e o texto contorna a foto (ao lado e abaixo) */
+  @media(max-width:600px){
+    .hero-grid{display:block}
+    .hero-grid::after{content:"";display:table;clear:both}
+    .hero-photo{float:right;width:116px;margin:4px 0 10px 14px}
+    .hero-photo img{border-width:3px}
+    h1.hl{font-size:clamp(1.9rem,8vw,2.3rem)}}
   h1.hl{font-size:clamp(2.2rem,5.4vw,3.5rem);line-height:1.06;letter-spacing:-.035em;font-weight:800}
   h1.hl em{font-style:normal;color:var(--accent)}
   .lead{font-size:clamp(1.02rem,2vw,1.15rem);color:var(--muted);margin-top:20px;max-width:58ch}
@@ -326,6 +333,13 @@ document.documentElement.setAttribute("data-theme",t);})();
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
+      <figure class="hero-photo">
+        <picture>
+          <source srcset="img/jp-marson.webp" type="image/webp">
+          <img src="img/jp-marson.jpg" width="400" height="400" alt="Foto de João Paulo Marson (JP)">
+        </picture>
+        <figcaption>João Paulo Marson · São Paulo</figcaption>
+      </figure>
       <div class="hero-txt">
         <h1 class="hl" data-i18n-html="h1"></h1>
         <p class="tagline" data-i18n-html="tagline"></p>
@@ -340,13 +354,6 @@ document.documentElement.setAttribute("data-theme",t);})();
           <span>PT · EN · ES</span>
         </div>
       </div>
-      <figure class="hero-photo">
-        <picture>
-          <source srcset="img/jp-marson.webp" type="image/webp">
-          <img src="img/jp-marson.jpg" width="400" height="400" alt="Foto de João Paulo Marson (JP)">
-        </picture>
-        <figcaption>João Paulo Marson · São Paulo</figcaption>
-      </figure>
     </div>
 
   </div>
